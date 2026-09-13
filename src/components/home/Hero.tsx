@@ -65,10 +65,6 @@ export default function Hero() {
             </a>
           </div>
         </Reveal>
-
-        <Reveal delay={0.2}>
-          <p className="eyebrow mt-14 text-mist">{HERO.strapline}</p>
-        </Reveal>
       </div>
     </section>
   );

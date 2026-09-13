@@ -22,11 +22,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} — Websites that bring in phone calls.`,
-    template: `%s — ${SITE.name}`,
+    default: `${SITE.name}: Websites that bring in phone calls.`,
+    template: `%s | ${SITE.name}`,
   },
   description:
-    'Hand-coded websites, content systems, and AI automation for local businesses across MetroWest Massachusetts.',
+    'Hand-coded websites, content, and AI automation for local businesses across MetroWest Massachusetts.',
   openGraph: {
     type: 'website',
     siteName: SITE.name,

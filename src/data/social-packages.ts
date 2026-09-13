@@ -169,7 +169,7 @@ export const SOCIAL_NOT_INCLUDED = {
   outro:
     'Paid ads are covered by our separate SEO & marketing retainer, which handles Google Ads and Meta Ads management.',
   linkLabel: 'See the SEO & marketing packages',
-  linkHref: '/pricing/seo',
+  linkHref: '/services#google-ads',
 } as const;
 
 /** S6 — Closing CTA. */

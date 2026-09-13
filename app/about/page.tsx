@@ -9,7 +9,7 @@ import { ABOUT } from '@/data/about';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'MGRTECH Solutions is a web studio in Ashland, Massachusetts. When you call, you reach the person responsible for your project — not a switchboard.',
+    'MGRTECH Solutions is a web studio in Ashland, Massachusetts. When you call, you reach the person responsible for your project, not a switchboard.',
   alternates: { canonical: '/about' },
 };
 

@@ -88,7 +88,7 @@ export default function ReviewForm({ showHeader = true }: { showHeader?: boolean
           Got it. Watch your inbox.
         </h2>
         <p className="mt-3 max-w-md text-[1.0625rem] leading-[1.7] text-ink-soft">
-          Your review lands within two business days — from a person, not an autoresponder. Need
+          Your review lands within two business days, from a person, not an autoresponder. Need
           it sooner? Call {SITE.phone}.
         </p>
       </div>
@@ -105,7 +105,7 @@ export default function ReviewForm({ showHeader = true }: { showHeader?: boolean
             Send your URL. Get the 3 things costing you calls.
           </h2>
           <p className="mt-5 max-w-md text-[1.0625rem] leading-[1.7] text-ink-soft">
-            I&rsquo;ll personally look at your website and send back a short, honest review — the
+            I&rsquo;ll personally look at your website and send back a short, honest review: the
             three things most likely costing you phone calls, in plain English. Free. One email.
             No follow-up sequence.
           </p>
@@ -118,7 +118,7 @@ export default function ReviewForm({ showHeader = true }: { showHeader?: boolean
           <a href={SITE.phoneHref} className="font-medium text-accent-ink underline">
             {SITE.phone}
           </a>{' '}
-          instead — I answer.
+          instead, I answer.
         </p>
       </noscript>
 
@@ -159,7 +159,7 @@ export default function ReviewForm({ showHeader = true }: { showHeader?: boolean
             id="lead-notes"
             name="notes"
             rows={3}
-            placeholder="Optional — a sentence is plenty"
+            placeholder="Optional, a sentence is plenty"
             value={values.notes}
             onChange={set('notes')}
             aria-invalid={Boolean(errors.notes)}

@@ -21,13 +21,9 @@ const STATIC_ROUTES: { path: string; priority: number; changeFrequency: SitemapR
   { path: '/blog', priority: 0.7, changeFrequency: 'daily' },
   { path: '/contact', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/faq', priority: 0.6, changeFrequency: 'monthly' },
-  { path: '/pricing', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/pricing/website-cost', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/pricing/seo', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/pricing/social', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/industries', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/process', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/services', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/work', priority: 0.7, changeFrequency: 'monthly' },
 ];
 
 export function buildSitemapRoutes(): SitemapRoute[] {

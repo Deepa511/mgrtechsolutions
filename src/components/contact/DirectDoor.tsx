@@ -23,7 +23,7 @@ export default function DirectDoor() {
       <h2 className="h3-card mt-3 font-medium text-forest-950">Call. A person answers.</h2>
 
       <p className="mt-5 max-w-md text-[1.0625rem] leading-[1.7] text-ink-soft">
-        You get one point of contact from the first call through launch — no account managers, no
+        You get one point of contact from the first call through launch: no account managers, no
         handoffs, no re-explaining your business to someone new. Ask anything: pricing, timing,
         whether you even need a new site. If we&rsquo;re not the right fit, I&rsquo;ll say so and
         point you somewhere useful.
@@ -36,7 +36,7 @@ export default function DirectDoor() {
       >
         {SITE.phone}
       </a>
-      <p className="eyebrow mt-3 text-ink-soft">CALL ANYTIME — IF I MISS IT, I CALL BACK SAME DAY</p>
+      <p className="eyebrow mt-3 text-ink-soft">CALL ANYTIME: IF I MISS IT, I CALL BACK SAME DAY</p>
 
       <div className="mt-8 flex flex-wrap items-center gap-3">
         <a

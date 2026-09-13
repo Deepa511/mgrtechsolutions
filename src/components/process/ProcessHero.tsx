@@ -17,9 +17,7 @@ export default function ProcessHero() {
           <span className="text-accent">{PROCESS_HERO.breadcrumb}</span>
         </nav>
 
-        <p className="eyebrow mt-8 text-accent">{PROCESS_HERO.eyebrow}</p>
-
-        <div className="mt-14 grid gap-12 lg:grid-cols-[1.1fr,0.9fr] lg:items-center">
+        <div className="mt-10 grid gap-12 lg:grid-cols-[1.1fr,0.9fr] lg:items-center">
           <div>
             <h1 className="h1-page font-medium text-cream-50">
               {PROCESS_HERO.headline}
@@ -50,7 +48,6 @@ export default function ProcessHero() {
               {PROCESS_HERO.countdown.weeksCount}
             </span>
             <span className="eyebrow text-mist">{PROCESS_HERO.countdown.weeksLabel}</span>
-            <span className="eyebrow ml-4 text-mist">{PROCESS_HERO.countdown.caption}</span>
           </div>
         </Reveal>
       </div>

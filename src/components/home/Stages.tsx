@@ -138,7 +138,7 @@ function Stage({
         <Reveal>
           <p className="eyebrow flex items-center gap-3 text-accent-ink">
             <Icon className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
-            <span className="lg:hidden">{stage.index} — </span>
+            <span className="lg:hidden">{stage.index} · </span>
             {stage.label}
           </p>
         </Reveal>

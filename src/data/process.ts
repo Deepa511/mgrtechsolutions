@@ -8,22 +8,20 @@
 /** S1 — Hero */
 export const PROCESS_HERO = {
   breadcrumb: 'PROCESS',
-  eyebrow: '— THE PROCESS',
   headline: 'Your part:',
   headlineAccent: '90 minutes.',
   lede:
-    "You're running a business. The last thing you need is a second job managing a website project. So I built a process where your total time investment is about 90 minutes across one conversation and two reviews — and everything else is mine.",
+    "You're running a business. The last thing you need is a second job managing a website project. So I built a process where your total time investment is about 90 minutes across one conversation and two reviews, and everything else is mine.",
   countdown: {
     line1: 'CALL',
     arrow: '→',
     line2: 'LAUNCH',
     weeksLabel: 'WEEKS',
     weeksCount: 5,
-    caption: 'ONE CALL · ONE REVIEW · DONE',
   },
 } as const;
 
-/** S2 — The five weeks (light): timeline with effort chips. */
+/** S2 — The five-week timeline (light), with effort chips per step. */
 export const WEEK_TIMELINE = {
   weeks: [
     {
@@ -37,23 +35,31 @@ export const WEEK_TIMELINE = {
     {
       week: 'WEEK 2',
       title: 'Design',
-      body: 'You get a real design to react to — not a mood board, not a wireframe. One round of feedback over email or a short call, and I refine from there.',
+      body: 'You get a real design to react to, not a mood board, not a wireframe. One round of feedback over email or a short call, and I refine from there.',
       iDo: 'Design the full site, write the first pass of all copy',
       youDo: 'Look at it, react, done',
       chip: 'YOU: ~15 MIN',
     },
     {
-      week: 'WEEK 3–4',
+      week: 'WEEK 3',
       title: 'Build',
-      body: 'Hand-coded from scratch. You get a private preview link and can watch it come together — or ignore it entirely and get back to work. Both are fine.',
+      body: 'Hand-coded from scratch. You get a private preview link and can watch it come together, or ignore it entirely and get back to work. Both are fine.',
       iDo: 'Code, write, optimize, test on real phones',
       youDo: 'Nothing',
       chip: 'YOU: 0 MIN',
     },
     {
+      week: 'WEEK 4',
+      title: 'Review and refine',
+      body: "You go through the finished site the way a customer would, phone first. This isn't a second design round, the direction was already agreed in week 2. This pass is for accuracy and polish.",
+      iDo: 'Make the changes you flag, retest on real phones',
+      youDo: 'One short review call or email',
+      chip: 'YOU: ~15 MIN',
+    },
+    {
       week: 'WEEK 5',
       title: 'Launch',
-      body: 'Domain, hosting, SSL, Google Business Profile — everything connected, tested, and live. You get a short walkthrough video so nothing is a mystery.',
+      body: 'Domain, hosting, SSL, Google Business Profile: everything connected, tested, and live. You get a short walkthrough video so nothing is a mystery.',
       iDo: 'Launch, verify, submit to search engines',
       youDo: 'Answer the phone',
       chip: 'YOU: 0 MIN',
@@ -61,7 +67,7 @@ export const WEEK_TIMELINE = {
     {
       week: 'AFTER',
       title: 'Support',
-      body: 'Same person, same phone number. Changes, additions, questions — you call, I handle it. No ticket system, no account manager, no explaining your project to a stranger.',
+      body: 'Same person, same phone number. Changes, additions, questions: you call, I handle it. No ticket system, no account manager, no explaining your project to a stranger.',
       iDo: 'Updates, fixes, additions as agreed',
       youDo: 'Call when you need something',
       chip: 'YOU: JUST CALL',
@@ -103,7 +109,7 @@ export const HOMEWORK_LIST = {
   packingListLabel: 'PACKING LIST',
   items: [
     {
-      label: '60 minutes for a phone call',
+      label: '60 minutes for a phone call, plus two 15-minute reviews',
       note: 'Any time that works. Early, late, between jobs.',
     },
     {
@@ -130,7 +136,7 @@ export const PROCESS_CLOSE = {
     "One call. No forms, no funnels, no 'schedule a discovery session' runaround. Dial the number, we talk, and you'll know within one conversation whether this makes sense.",
   callLabel: 'Call',
   secondaryCta: 'See pricing',
-  secondaryHref: '/pricing',
+  secondaryHref: '/services',
 } as const;
 
 export const PROCESS = {

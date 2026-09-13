@@ -9,7 +9,7 @@ import { FAQ_CLOSE, FAQ_GROUPS } from '@/data/faq';
 export const metadata: Metadata = {
   title: 'FAQ',
   description:
-    'Twelve questions I hear on almost every first call — cost, timeline, ownership, and what happens after launch — answered straight.',
+    'Twelve questions I hear on almost every first call: cost, timeline, ownership, and what happens after launch, answered straight.',
   alternates: { canonical: '/faq' },
 };
 

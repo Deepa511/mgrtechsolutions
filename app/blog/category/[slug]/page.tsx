@@ -38,30 +38,34 @@ export default async function BlogCategoryPage({
 
   return (
     <>
-      <section className="bg-cream-50 pb-16 pt-24 md:pt-28">
+      <section className="dot-grid on-dark bg-forest-950 pb-16 pt-24">
         <div className="container-page">
-          <nav aria-label="Breadcrumb" className="eyebrow text-ink-soft">
-            <Link href="/" className="transition-colors hover:text-accent-ink">
+          <nav aria-label="Breadcrumb" className="eyebrow text-mist">
+            <Link href="/" className="transition-colors hover:text-accent">
               HOME
             </Link>
-            <span className="mx-2 text-cream-300" aria-hidden="true">
+            <span className="mx-2 text-forest-700" aria-hidden="true">
               /
             </span>
-            <Link href="/blog" className="transition-colors hover:text-accent-ink">
+            <Link href="/blog" className="transition-colors hover:text-accent">
               BLOG
             </Link>
+            <span className="mx-2 text-forest-700" aria-hidden="true">
+              /
+            </span>
+            <span className="text-accent">{category.name.toUpperCase()}</span>
           </nav>
 
-          <p className="eyebrow mt-8 text-accent-ink">{posts.length} articles</p>
-          <h1 className="h1-page mt-4 max-w-3xl font-medium text-forest-950">{category.name}</h1>
-          <p className="lede mt-6 max-w-xl text-ink-soft">{category.tagline}</p>
-          <p className="mt-4 max-w-xl text-[1.0625rem] leading-[1.7] text-ink-soft">
+          <p className="eyebrow mt-8 text-accent">{posts.length} ARTICLES</p>
+          <h1 className="h1-page mt-4 max-w-3xl font-medium text-cream-50">{category.name}</h1>
+          <p className="lede mt-6 max-w-xl text-mist">{category.tagline}</p>
+          <p className="mt-4 max-w-xl text-[1.0625rem] leading-[1.7] text-mist">
             {category.description}
           </p>
         </div>
       </section>
 
-      <section className="bg-cream-100 py-16 md:py-20">
+      <section className="bg-cream-50 py-16 md:py-20">
         <div className="container-page">
           <h2 className="sr-only">Articles in {category.name}</h2>
           {posts.length > 0 ? (
@@ -72,7 +76,7 @@ export default async function BlogCategoryPage({
             </div>
           ) : (
             <p className="text-[1.0625rem] text-ink-soft">
-              No articles in this category yet — check back soon.
+              No articles in this category yet. Check back soon.
             </p>
           )}
         </div>

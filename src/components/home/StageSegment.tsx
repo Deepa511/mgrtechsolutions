@@ -182,7 +182,7 @@ function SceneFound({ p, reduce }: { p: MotionValue<number>; reduce: boolean }) 
           style={{ opacity: staticEnd ? 0 : rankOpacity }}
           className="pt-1 text-center text-[0.5625rem] text-ink-soft"
         >
-          Your business — position 11
+          Your business: position 11
         </motion.p>
       </div>
     </div>
@@ -397,7 +397,7 @@ function SceneFollowUp({ p, reduce }: { p: MotionValue<number>; reduce: boolean 
           style={{ opacity: reduce ? 1 : textOpacity }}
           className="mt-6 w-full rounded-xl rounded-br-sm bg-accent px-3 py-2 text-left text-[0.625rem] leading-snug text-forest-950"
         >
-          Sorry we missed you — this is MGRTECH. What do you need done, and
+          Sorry we missed you. This is MGRTECH. What do you need done, and
           what&rsquo;s the address?
         </motion.div>
 

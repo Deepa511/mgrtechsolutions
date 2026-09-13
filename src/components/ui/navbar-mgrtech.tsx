@@ -13,6 +13,7 @@ import {
   useSpring,
   useTransform,
 } from 'motion/react';
+import { getLenisInstance } from '@/lib/lenis-instance';
 
 /**
  * MGRTECH resizable / scroll-aware navbar.
@@ -48,29 +49,45 @@ type NavItem = {
 };
 
 const NAV_ITEMS: NavItem[] = [
-  { name: 'Services', link: '/services' },
-  { name: 'Work', link: '/work' },
-  { name: 'Process', link: '/process' },
+  { name: 'Home', link: '/' },
   {
-    name: 'Packages',
-    link: '/pricing',
+    name: 'Services',
+    link: '/services',
     menu: [
       {
-        heading: 'Design & Development',
+        heading: 'BUILD',
         items: [
-          { name: 'Website Pricing', link: '/pricing/website-cost' },
-          { name: 'All Packages', link: '/pricing' },
+          { name: 'Website Design & Development', link: '/services#web-design' },
+          { name: 'SEO', link: '/services#seo' },
+          { name: 'E-commerce', link: '/services#ecommerce' },
         ],
       },
       {
-        heading: 'Digital Marketing',
+        heading: 'GROW',
         items: [
-          { name: 'SEO Packages', link: '/pricing/seo' },
-          { name: 'Social Media', link: '/pricing/social' },
+          { name: 'Google Ads & PPC', link: '/services#google-ads' },
+          { name: 'Social Media Management', link: '/services#social-media' },
+          { name: 'AI Automation', link: '/services#automation' },
         ],
       },
     ],
   },
+  {
+    name: 'Industries',
+    link: '/industries',
+    menu: [
+      {
+        heading: 'INDUSTRIES WE SERVE',
+        items: [
+          { name: 'Trades & Contractors', link: '/industries#trades-contractors' },
+          { name: 'Auto & Motorsports', link: '/industries#auto-motorsports' },
+          { name: 'Retail & E-commerce', link: '/industries#retail-ecommerce' },
+          { name: 'Local Services', link: '/industries#local-services' },
+        ],
+      },
+    ],
+  },
+  { name: 'Process', link: '/process' },
   { name: 'Blog', link: '/blog' },
   { name: 'About', link: '/about' },
   { name: 'FAQ', link: '/faq' },
@@ -97,6 +114,39 @@ export default function NavbarMgrtech() {
   const pathname = usePathname();
   const reduce = useReducedMotion();
   const { scrollY } = useScroll();
+
+  /**
+   * Every nav link (top-level and mega-menu sub-item) runs through this.
+   * Next's `<Link>` is a no-op when the href resolves to the exact current
+   * URL, which is why clicking "Services" while already on `/services` used
+   * to do nothing. When the target is the current page, this takes over:
+   * scroll to the hash target if there is one, otherwise straight to the
+   * top. A genuine route change is left alone — `SmoothScroll`'s
+   * pathname-change effect lands it in the right place once the new page
+   * mounts.
+   */
+  const handleNavClick = (e: React.MouseEvent, href: string) => {
+    setOpen(false);
+    setMenuOpen(null);
+
+    const [path, hash] = href.split('#');
+    const targetPath = path === '' ? '/' : path;
+    if (targetPath !== pathname) return;
+
+    e.preventDefault();
+    const lenis = getLenisInstance();
+    const target = hash ? document.getElementById(hash) : null;
+
+    if (target) {
+      if (lenis) lenis.scrollTo(target, { immediate: Boolean(reduce) });
+      else target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    } else {
+      if (lenis) lenis.scrollTo(0, { immediate: Boolean(reduce) });
+      else window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    }
+
+    window.history.replaceState(null, '', href);
+  };
 
   // ── Scroll-linked geometry ────────────────────────────────────────────
   // Each of these maps scrollY continuously. `useSpring` then eases the
@@ -199,7 +249,7 @@ export default function NavbarMgrtech() {
           <Link
             href="/"
             className="flex shrink-0 items-center gap-3"
-            aria-label="MGRTECH Solutions — home"
+            aria-label="MGRTECH Solutions, home"
           >
             {/*
               No chip. A rounded square holding a centred glyph is the app-icon
@@ -255,9 +305,10 @@ export default function NavbarMgrtech() {
                 />
               );
 
-              // Items with a mega-menu render a disclosure button instead of
-              // a link: the parent route is reachable from inside the panel,
-              // so the trigger's only job is opening it.
+              // Items with a mega-menu render the label as a real link (so
+              // clicking "Services" still goes to the full page) plus a
+              // separate chevron that toggles the panel of sub-sections.
+              // Hovering the whole group opens the panel too, for a mouse.
               if (item.menu) {
                 const isMenuOpen = menuOpen === item.link;
                 return (
@@ -269,22 +320,32 @@ export default function NavbarMgrtech() {
                       setMenuOpen(item.link);
                     }}
                   >
-                    <button
-                      type="button"
-                      aria-expanded={isMenuOpen}
-                      aria-haspopup="true"
-                      onClick={() => setMenuOpen(isMenuOpen ? null : item.link)}
-                      className={`${linkClass} inline-flex items-center gap-1`}
-                    >
-                      <span className="relative">{item.name}</span>
-                      <ChevronDown
-                        aria-hidden="true"
-                        className={`h-3.5 w-3.5 transition-transform ${
-                          isMenuOpen ? 'rotate-180' : ''
-                        }`}
-                      />
-                      {underline}
-                    </button>
+                    <span className="inline-flex items-center">
+                      <Link
+                        href={item.link}
+                        onClick={(e) => handleNavClick(e, item.link)}
+                        aria-current={isActive ? 'page' : undefined}
+                        className={linkClass}
+                      >
+                        <span className="relative">{item.name}</span>
+                        {underline}
+                      </Link>
+                      <button
+                        type="button"
+                        aria-expanded={isMenuOpen}
+                        aria-haspopup="true"
+                        aria-label={`${item.name} sections`}
+                        onClick={() => setMenuOpen(isMenuOpen ? null : item.link)}
+                        className="py-2 pr-2 text-neutral-300 transition-colors hover:text-white"
+                      >
+                        <ChevronDown
+                          aria-hidden="true"
+                          className={`h-3.5 w-3.5 transition-transform ${
+                            isMenuOpen ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+                    </span>
 
                     <AnimatePresence>
                       {isMenuOpen && (
@@ -293,21 +354,23 @@ export default function NavbarMgrtech() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={reduce ? { opacity: 0 } : { opacity: 0, y: -6 }}
                           transition={reduce ? { duration: 0 } : { duration: 0.18 }}
-                          className="absolute left-0 top-full z-50 mt-3 grid min-w-[16rem] grid-cols-[repeat(auto-fit,minmax(11rem,1fr))] gap-x-10 gap-y-6 rounded-2xl border border-white/10 bg-black/95 p-6 shadow-lg shadow-black/40 backdrop-blur-md"
+                          className={`absolute left-0 top-full z-50 mt-3 grid gap-x-12 gap-y-6 rounded-2xl border border-white/10 bg-black/95 p-6 shadow-lg shadow-black/40 backdrop-blur-md ${
+                            item.menu.length > 1 ? 'w-[28rem] grid-cols-2' : 'w-[16rem] grid-cols-1'
+                          }`}
                         >
                           {item.menu.map((column) => (
                             <div key={column.heading}>
                               <p className="eyebrow text-neutral-500">{column.heading}</p>
                               <ul className="mt-4 space-y-3">
                                 {column.items.map((sub) => {
-                                  const subActive = pathname === sub.link;
+                                  const subActive = !sub.link.includes('#') && pathname === sub.link;
                                   return (
                                     <li key={sub.link}>
                                       <Link
                                         href={sub.link}
-                                        onClick={() => setMenuOpen(null)}
+                                        onClick={(e) => handleNavClick(e, sub.link)}
                                         aria-current={subActive ? 'page' : undefined}
-                                        className={`block whitespace-nowrap text-[0.9375rem] transition-colors ${
+                                        className={`block text-[0.9375rem] leading-snug transition-colors ${
                                           subActive
                                             ? 'text-emerald-400'
                                             : 'text-neutral-200 hover:text-emerald-400'
@@ -332,6 +395,7 @@ export default function NavbarMgrtech() {
                 <Link
                   key={item.link}
                   href={item.link}
+                  onClick={(e) => handleNavClick(e, item.link)}
                   aria-current={isActive ? 'page' : undefined}
                   onMouseEnter={() => {
                     setHovered(item.link);
@@ -415,7 +479,7 @@ export default function NavbarMgrtech() {
                   <div key={item.link}>
                     <Link
                       href={item.link}
-                      onClick={() => setOpen(false)}
+                      onClick={(e) => handleNavClick(e, item.link)}
                       aria-current={isActive ? 'page' : undefined}
                       className={`block py-2 text-lg transition-colors ${
                         isActive ? 'text-emerald-400' : 'text-neutral-300 hover:text-emerald-400'
@@ -432,22 +496,25 @@ export default function NavbarMgrtech() {
                         key={column.heading}
                         className="mb-1 ml-3 space-y-1 border-l border-white/10 pl-4"
                       >
-                        {column.items.map((sub) => (
-                          <li key={sub.link}>
-                            <Link
-                              href={sub.link}
-                              onClick={() => setOpen(false)}
-                              aria-current={pathname === sub.link ? 'page' : undefined}
-                              className={`block py-1.5 text-base transition-colors ${
-                                pathname === sub.link
-                                  ? 'text-emerald-400'
-                                  : 'text-neutral-400 hover:text-emerald-400'
-                              }`}
-                            >
-                              {sub.name}
-                            </Link>
-                          </li>
-                        ))}
+                        {column.items.map((sub) => {
+                          const subActive = !sub.link.includes('#') && pathname === sub.link;
+                          return (
+                            <li key={sub.link}>
+                              <Link
+                                href={sub.link}
+                                onClick={(e) => handleNavClick(e, sub.link)}
+                                aria-current={subActive ? 'page' : undefined}
+                                className={`block py-1.5 text-base transition-colors ${
+                                  subActive
+                                    ? 'text-emerald-400'
+                                    : 'text-neutral-400 hover:text-emerald-400'
+                                }`}
+                              >
+                                {sub.name}
+                              </Link>
+                            </li>
+                          );
+                        })}
                       </ul>
                     ))}
                   </div>

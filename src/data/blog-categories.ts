@@ -11,7 +11,7 @@ export const CATEGORIES: BlogCategory[] = [
   {
     name: 'AI & Search',
     slug: 'ai-search',
-    tagline: 'Being the business the robots recommend.',
+    tagline: 'Getting recommended by AI assistants, not just found on Google.',
     description:
       'Plain-English guidance on getting your business found and recommended by AI assistants and modern search engines.',
     icon: '/blog/cat-ai-search.svg',
@@ -19,7 +19,7 @@ export const CATEGORIES: BlogCategory[] = [
   {
     name: 'Business Growth',
     slug: 'business-growth',
-    tagline: 'The unglamorous math of getting bigger.',
+    tagline: 'Pricing, hiring, and scaling a growing service business.',
     description:
       'Practical advice on pricing, hiring, scaling, and managing a growing service business.',
     icon: '/blog/cat-business-growth.svg',
@@ -27,7 +27,7 @@ export const CATEGORIES: BlogCategory[] = [
   {
     name: 'Content Marketing',
     slug: 'content-marketing',
-    tagline: 'Answer the questions, earn the trust.',
+    tagline: 'Writing content that answers customer questions and earns trust.',
     description:
       'How to plan and write content that answers customer questions, builds trust, and brings in work.',
     icon: '/blog/cat-content-marketing.svg',
@@ -35,7 +35,7 @@ export const CATEGORIES: BlogCategory[] = [
   {
     name: 'Lead Generation',
     slug: 'lead-generation',
-    tagline: 'Turning visits into phone calls.',
+    tagline: 'Turning website visitors into phone calls and booked jobs.',
     description:
       'Forms, calls to action, follow-up, and everything that turns website visitors into paying customers.',
     icon: '/blog/cat-lead-generation.svg',
@@ -43,7 +43,7 @@ export const CATEGORIES: BlogCategory[] = [
   {
     name: 'Local SEO',
     slug: 'local-seo',
-    tagline: 'Showing up when your neighbors search.',
+    tagline: 'Showing up when nearby customers search for your service.',
     description:
       'Showing up when nearby customers search: maps rankings, reviews, business listings, and local keywords.',
     icon: '/blog/cat-local-seo.svg',
@@ -51,7 +51,7 @@ export const CATEGORIES: BlogCategory[] = [
   {
     name: 'Website Performance',
     slug: 'website-performance',
-    tagline: 'Fast, mobile, and nothing broken.',
+    tagline: 'Site speed, mobile experience, and the technical basics.',
     description:
       'Speed, mobile experience, and the technical basics that keep visitors on your site.',
     icon: '/blog/cat-website-performance.svg',

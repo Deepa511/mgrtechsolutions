@@ -102,6 +102,28 @@ export const WORK_SHOWCASE: readonly WorkShowcaseItem[] = [
     status: 'demo',
     tags: [],
   },
+  {
+    slug: 'chaubandi-boutique',
+    name: 'Chaubandi Boutique',
+    domain: null,
+    href: null,
+    image: '/work/chaubandi-boutique.webp',
+    width: 1536,
+    height: 1024,
+    status: 'demo',
+    tags: [],
+  },
+  {
+    slug: 'route126-puppies',
+    name: 'Route 126 Exotic Puppies',
+    domain: null,
+    href: null,
+    image: '/work/route126-puppies.webp',
+    width: 1536,
+    height: 1024,
+    status: 'demo',
+    tags: [],
+  },
 ] as const;
 
 /**

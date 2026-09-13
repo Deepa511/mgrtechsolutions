@@ -63,7 +63,7 @@ export default function PricingPreview() {
 
         <Reveal delay={0.3}>
           <a
-            href="/pricing"
+            href="/services"
             className="mt-12 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-medium text-forest-950 transition-transform hover:scale-[1.03]"
           >
             {PRICING.cta}

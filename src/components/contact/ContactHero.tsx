@@ -14,18 +14,18 @@ export default function ContactHero() {
           <span className="text-accent">CONTACT</span>
         </nav>
 
-        <p className="eyebrow mt-8 text-accent">— CONTACT</p>
-
-        <h1 className="h1-page mt-4 max-w-4xl font-medium text-cream-50">
-          Two ways to start.
-          <span className="mt-1 block text-accent">
-            Neither is a form you&rsquo;ll regret.
-          </span>
+        <h1 className="h1-page mt-10 max-w-4xl font-medium text-cream-50">
+          Four ways to start.
+          <span className="mt-1 block text-accent">Pick whichever fits.</span>
         </h1>
 
         <p className="lede mt-8 max-w-xl text-mist">
-          Call and talk to the person who&rsquo;d build your site — or send your URL and get an
-          honest, free review first. No drip campaigns, no sales sequence, no pressure either way.
+          Already have a website? Start with the free review. Don&rsquo;t have one yet? Request a
+          quote. Either way, you can just call, or send another business our way.
+        </p>
+
+        <p className="lede mt-4 max-w-xl text-mist">
+          No drip campaigns, no sales sequence, no pressure either way.
         </p>
       </div>
     </section>
