@@ -244,3 +244,18 @@ Merged `fix/stat-sourcing` into `main`. Three commits:
 - **Hard rules live in `CLAUDE.md`** and are machine-enforced: the retired phone
   number `508-306-1802` must appear nowhere, and no copy may claim the company
   is one person. `npm run verify:copy` fails the build on both.
+
+## Services scroll scenes (branch `feature/scroll-scenes`)
+
+`/services` now renders six pinned, scroll-driven scenes from
+`src/components/services/scroll-scenes/`, fed from `src/data/services.ts`
+(first four checklist items), each followed by a `ServiceDetails` block with
+the specs, packages, tiers and timeline. Section ids are unchanged. Scene
+mock colours are `--color-sc-*` tokens in `@theme`. Scene text (competitor
+names, review counts, "25 leads", "$60 per lead", "7 calls") is illustrative
+placeholder. Copy rewritten in plain language (4 scene checks per service, EXAMPLE label on scenes). OPEN: confirm launch time (15 days vs 5 weeks) before stating it. Each service shows 3 article cards below its scene (no pricing or spec content on this page). Not yet checked in a real browser: Lenis rewind and anchor jumps,
+reduced motion, 390px.
+
+Overview cards on /services have drawn-on line icons (ServiceIcon.tsx, all six draw together, static under reduced motion); hero paragraph widened to max-w-3xl.
+
+Overview cards: hover lift, icon redraw and idle loops, pointer glow, slide-in "See how it works" arrow (ServiceCard.tsx). Hero second line reads "to get more calls, with one point of contact."

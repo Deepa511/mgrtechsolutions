@@ -15,49 +15,56 @@
 /** S1 — Hero */
 export const SERVICES_HERO = {
   breadcrumb: 'SERVICES',
-  headline: 'Six services,',
-  headlineAccent: 'one accountable point of contact.',
+  headline: 'Everything you need',
+  headlineAccent: 'to get more calls, with one point of contact.',
   lede:
-    'You can hire six different vendors for six different things. What actually makes the phone ring is a website, SEO, e-commerce, paid ads, social media, and the follow-up that catches every inquiry, planned together and built by the person who answers the phone.',
+    'A website, being found on Google, paid ads, social media and automatic replies all work best when they are planned together. Here is what each one is and what you get.',
 } as const;
 
 /** S2 — Overview strip: six anchor cards into the pillars. */
 export const SYSTEM_STRIP = {
+  cta: 'See how it works',
   parts: [
     {
       index: '01',
+      icon: 'web',
       name: 'Website Design & Development',
-      line: 'Hand-coded, fast, built to be found.',
+      line: 'A fast website made for your business.',
       target: '#web-design',
     },
     {
       index: '02',
-      name: 'SEO',
-      line: 'Pages and articles that answer real questions.',
+      icon: 'seo',
+      name: 'SEO (Found on Google)',
+      line: 'Be found when people search on Google.',
       target: '#seo',
     },
     {
       index: '03',
+      icon: 'shop',
       name: 'E-commerce',
-      line: 'A storefront that sells while you sleep.',
+      line: 'An online store that takes orders any hour.',
       target: '#ecommerce',
     },
     {
       index: '04',
-      name: 'Google Ads & PPC',
-      line: 'Paid visibility today, not just data for a report.',
+      icon: 'ads',
+      name: 'Google Ads (Paid Ads)',
+      line: 'Ads that put you in front of customers now.',
       target: '#google-ads',
     },
     {
       index: '05',
+      icon: 'social',
       name: 'Social Media Management',
-      line: 'A feed that looks like an active, trusted business.',
+      line: 'Regular posts that show you are active.',
       target: '#social-media',
     },
     {
       index: '06',
-      name: 'AI Automation',
-      line: 'Follow-up that never sleeps.',
+      icon: 'auto',
+      name: 'Automatic Replies',
+      line: 'Every inquiry gets a reply right away.',
       target: '#automation',
     },
   ],
@@ -66,10 +73,10 @@ export const SYSTEM_STRIP = {
 /** S3 — Pillar 01: Website Design & Development */
 export const PILLAR_WEB_DESIGN = {
   eyebrow: 'PART 01 · WEBSITE DESIGN & DEVELOPMENT',
-  headline: "A website that's an asset,",
-  headlineAccent: 'not a brochure.',
+  headline: 'A website that brings you customers,',
+  headlineAccent: 'not just a page that exists.',
   body:
-    'Every site I build is hand-coded in modern frameworks. No templates, no page builders, no rented themes. That means it loads fast, ranks clean, and you own every line of it.',
+    'I build every site from scratch for your business, with no ready-made templates. It loads quickly on a phone, it is easy for Google to read, and you own all of it.',
   checklist: [
     'Custom design, built for your business, not a theme with your logo on it',
     'Hand-coded with Next.js-style modern tooling, fast on any phone',
@@ -130,15 +137,44 @@ export const PILLAR_WEB_DESIGN = {
       featured: false,
     },
   ],
+  sceneChecks: [
+    "Designed for your business, no templates",
+    "Loads fast on any phone",
+    "Shows up for your town and trade",
+    "Domain and hosting in your name",
+  ],
+  fanCards: [
+    {
+      tag: 'Website speed',
+      title: 'Why a slow site costs you the call',
+      example: "A customer on a phone leaves before the page loads",
+      slug: 'why-website-speed-matters',
+      descriptor: 'Why fast matters',
+    },
+    {
+      tag: 'The process',
+      title: 'What actually happens during a website build',
+      example: "From first call to launch day, no surprises",
+      slug: 'what-to-expect-website-build-process',
+      descriptor: 'Know the steps',
+    },
+    {
+      tag: 'Cost',
+      title: 'What a bargain website really costs',
+      example: "The template that never brings in a call",
+      slug: 'real-cost-cheap-website',
+      descriptor: 'Avoid the trap',
+    },
+  ],
 } as const;
 
 /** S5 — Pillar 02: SEO */
 export const PILLAR_SEO = {
-  eyebrow: 'PART 02 · SEO',
-  headline: 'Content that answers the questions',
-  headlineAccent: 'customers ask before they call.',
+  eyebrow: 'PART 02 · BEING FOUND ON GOOGLE (SEO)',
+  headline: 'Be the business people find',
+  headlineAccent: 'when they search on Google.',
   body:
-    'People search their questions long before they search your name. The business that answers those questions clearly is the one that gets found, by Google and increasingly by AI assistants. I plan and write that content with you.',
+    'Customers search long before they call. SEO (search engine optimization) means the pages and articles on your site answer their questions, so Google shows you and not your competitor. I plan and write them with you.',
   checklist: [
     'A content plan built from the questions your customers actually ask',
     'Service pages written in plain English, not keyword soup',
@@ -154,31 +190,35 @@ export const PILLAR_SEO = {
    * match the live article, and `tag`/`title`/`descriptor` are curated
    * card copy rather than the full (longer) article title.
    */
+  sceneChecks: [
+    "A page for each service and town",
+    "Articles that answer customer questions",
+    "Your Google Maps listing kept current",
+    "A monthly report in plain English",
+  ],
   fanCards: [
     {
-      tag: 'LOCAL SEO',
+      tag: 'Local search',
       title: 'What do your customers actually type into Google?',
       example: '"best plastering job in Framingham"',
       slug: 'local-keyword-research-for-service-businesses',
-      descriptor: 'ANSWERS A REAL SEARCH',
+      descriptor: 'Answers a real search',
     },
     {
-      tag: 'LEAD GENERATION',
+      tag: 'More calls',
       title: 'Why your phone stopped ringing, and 5 fixes',
       example: 'A customer already comparing quotes calls the business that answers first',
       slug: '5-reasons-losing-leads-online',
-      descriptor: 'BUILDS TRUST',
+      descriptor: 'Builds trust',
     },
     {
-      tag: 'AI & SEARCH',
+      tag: 'AI search',
       title: 'Getting found when customers ask AI, not Google',
       example: '"Who\'s a good electrician near me?" asked straight to ChatGPT',
       slug: 'how-chatgpt-finds-businesses',
-      descriptor: 'KEEPS TRAFFIC COMING',
+      descriptor: 'Keeps traffic coming',
     },
   ],
-  pricingNote:
-    'Ongoing SEO runs $500/mo as part of the Standard marketing package, bundled with social media management. See Social Media Management below.',
 } as const;
 
 /**
@@ -191,10 +231,10 @@ export const PILLAR_SEO = {
  */
 export const PILLAR_ECOMMERCE = {
   eyebrow: 'PART 03 · E-COMMERCE',
-  headline: 'A storefront that sells',
-  headlineAccent: 'while you sleep.',
+  headline: 'An online store',
+  headlineAccent: 'that takes orders any hour.',
   body:
-    "A product catalog is not a website feature you bolt on later. It's a different kind of build, from checkout flow to how search engines read your categories. I build stores the same way I build service sites: hand-coded, fast, and structured so every product page can be found on its own.",
+    'Selling products online is different from a regular website. I build the whole store: your products, a safe checkout, and shipping and tax. I also set it up so each product can show up on its own in Google.',
   checklist: [
     'Product catalog built to scale, from a dozen items to a full inventory',
     'Secure checkout and payment processing, set up in your name',
@@ -209,15 +249,44 @@ export const PILLAR_ECOMMERCE = {
     ['PRICING', 'QUOTED TO YOUR CATALOG, NOT A FLAT RATE'],
     ['OWNERSHIP', '100% YOURS, INCLUDING PAYMENT ACCOUNTS'],
   ],
+  sceneChecks: [
+    "Your products set up and easy to browse",
+    "Safe checkout, payments go to you",
+    "Shipping, tax and stock set up",
+    "Each product can be found on Google",
+  ],
+  fanCards: [
+    {
+      tag: 'Phones',
+      title: 'Why your store has to work on a phone first',
+      example: "Most shoppers browse and buy on their phone",
+      slug: 'mobile-first-website-design',
+      descriptor: 'Built for phones',
+    },
+    {
+      tag: 'Product pages',
+      title: 'Help Google find each of your products',
+      example: "Extra page details that help your products show up in search",
+      slug: 'schema-markup-local-businesses',
+      descriptor: 'Found on its own',
+    },
+    {
+      tag: 'SPEED',
+      title: 'How to test how fast your site really is',
+      example: "A quick check anyone can run, cart included",
+      slug: 'how-to-test-website-speed',
+      descriptor: 'Check it yourself',
+    },
+  ],
 } as const;
 
 /** S9 — Pillar 04: Google Ads + PPC */
 export const PILLAR_GOOGLE_ADS = {
-  eyebrow: 'PART 04 · GOOGLE ADS & PPC',
-  headline: 'Paid ads that pay for themselves,',
-  headlineAccent: 'not just data for a report.',
+  eyebrow: 'PART 04 · GOOGLE ADS (PAID ADS)',
+  headline: 'Paid ads that bring in calls',
+  headlineAccent: 'you can count.',
   body:
-    "SEO earns visibility over months. Ads buy it starting today. The keyword someone searches, the ad they see, and the page they land on all have to say the same thing. Misalignment between those three is where most wasted ad spend comes from, and it's the first thing I fix.",
+    'SEO takes months to build. Google Ads put you at the top of the search results starting this week, and you pay only when someone clicks. The search, the ad and the page they land on all need to say the same thing, and I make sure they do.',
   checklist: [
     'Campaign audit, keyword and competitor research to start',
     'Campaign structure built so keyword, ad, and landing page all match',
@@ -236,15 +305,44 @@ export const PILLAR_GOOGLE_ADS = {
   ],
   adSpendNote:
     'The $999 fee is management only. You pay Google and Meta directly, and if you ever leave, the accounts and their history go with you.',
+  sceneChecks: [
+    "The ad matches what people searched",
+    "Tracks every call and form",
+    "Budget and ads managed each month",
+    "A report on leads and cost per lead",
+  ],
+  fanCards: [
+    {
+      tag: 'SEO or ads',
+      title: 'Where should a service business put its money?',
+      example: "Search ads and local SEO do different jobs",
+      slug: 'local-seo-vs-paid-ads',
+      descriptor: 'Choose with confidence',
+    },
+    {
+      tag: 'Follow-up ads',
+      title: 'The ads that bring visitors back',
+      example: "Bring back the visitor who almost called",
+      slug: 'retargeting-ads-explained',
+      descriptor: 'Win back visitors',
+    },
+    {
+      tag: 'Tracking',
+      title: 'Where did that job come from?',
+      example: "Know which ad rang the phone",
+      slug: 'how-to-track-leads',
+      descriptor: 'Know what works',
+    },
+  ],
 } as const;
 
 /** S11 — Pillar 05: Social Media Management */
 export const PILLAR_SOCIAL_MEDIA = {
   eyebrow: 'PART 05 · SOCIAL MEDIA MANAGEMENT',
-  headline: 'A feed that looks like',
-  headlineAccent: 'an active, trusted business.',
+  headline: 'Social media that shows',
+  headlineAccent: 'you are active and trusted.',
   body:
-    "A homeowner comparing two contractors looks both up. One has job-site reels and a post from this week. The other hasn't posted since spring. That gap decides more calls than most owners realize, and it's the part that's hardest to keep up while you're running crews all week.",
+    'A homeowner comparing two contractors looks both up online. The one with recent photos and videos of real jobs usually gets the call. I take care of the posting so you can stay on the job.',
   checklist: [
     'On-site shoots turned into videos and images every month',
     'Captions written for every post',
@@ -281,20 +379,49 @@ export const PILLAR_SOCIAL_MEDIA = {
       featured: false,
     },
   ],
+  sceneChecks: [
+    "Photos and videos from your jobs",
+    "A caption written for every post",
+    "Posted on schedule for you",
+    "Comments and messages answered",
+  ],
+  fanCards: [
+    {
+      tag: 'Video',
+      title: 'Video for your business, no crew needed',
+      example: "A phone and a job site are enough to start",
+      slug: 'video-content-for-local-businesses',
+      descriptor: 'Easy to start',
+    },
+    {
+      tag: 'Content',
+      title: 'Turn one job into a month of posts',
+      example: "One job-site shoot, a month of posts",
+      slug: 'how-to-repurpose-blog-content',
+      descriptor: 'More from less',
+    },
+    {
+      tag: 'Reviews',
+      title: 'How to get more Google reviews',
+      example: "Happy customers are your best post",
+      slug: 'how-to-get-more-google-reviews',
+      descriptor: 'Builds trust',
+    },
+  ],
 } as const;
 
 /** S13 — Pillar 06: AI Automation */
 export const PILLAR_AUTOMATION = {
-  eyebrow: 'PART 06 · AI AUTOMATION',
-  headline: 'AI automation means',
-  headlineAccent: 'no lead gets forgotten.',
+  eyebrow: 'PART 06 · AUTOMATIC REPLIES',
+  headline: 'Every inquiry gets a reply,',
+  headlineAccent: 'even at 11 at night.',
   body:
-    "Strip away the buzzword and it's simple: when someone reaches out, they hear back in seconds, even at 11 p.m., even on a job site, even on vacation. Inquiries get acknowledged, sorted, and followed up automatically, and you get a clean summary instead of a missed opportunity.",
+    'When someone contacts you, they hear back within seconds, even while you are on a job or asleep. Quotes that went quiet get a friendly follow-up, and you get a short plain-English summary of every lead.',
   checklist: [
     'Contact forms that actually reach you, and confirm instantly to the customer',
     'Automatic first replies, so every inquiry feels answered',
-    "Follow-up sequences for quotes and estimates that haven't heard back",
     'Lead summaries delivered to you in plain English',
+    "Follow-up sequences for quotes and estimates that haven't heard back",
     'Built on your site, under your control, no mystery subscriptions',
   ],
   timelineLabel: 'INQUIRY TIMELINE',
@@ -303,6 +430,35 @@ export const PILLAR_AUTOMATION = {
     { time: '11:04 PM', event: 'AUTO-REPLY SENT', detail: '"Thanks! You\'ll hear from us by morning."' },
     { time: '11:04 PM', event: 'NOTIFICATION TO YOU', detail: 'summary in plain English' },
     { time: 'NEXT AM', event: 'YOU CALL BACK', detail: 'lead is warm, not gone' },
+  ],
+  sceneChecks: [
+    "The customer gets an instant confirmation",
+    "An automatic first reply, any hour",
+    "Follow-up on quotes that went quiet",
+    "A plain-English summary sent to you",
+  ],
+  fanCards: [
+    {
+      tag: 'Fast replies',
+      title: 'Reply within five minutes and win more jobs',
+      example: "The first business to answer usually gets the job",
+      slug: 'how-to-respond-to-leads-faster',
+      descriptor: 'Answer first',
+    },
+    {
+      tag: 'Follow-up',
+      title: 'The follow-up system that books jobs',
+      example: "Quotes that went quiet, followed up automatically",
+      slug: 'how-to-follow-up-with-leads',
+      descriptor: 'No lead forgotten',
+    },
+    {
+      tag: 'Organizing leads',
+      title: 'A simple way to keep track of every lead',
+      example: "A single place every inquiry lands",
+      slug: 'what-is-crm',
+      descriptor: 'Keep it organized',
+    },
   ],
 } as const;
 

@@ -22,7 +22,7 @@ export default function ServicesHero() {
             <span className="mt-1 block text-accent">{SERVICES_HERO.headlineAccent}</span>
           </h1>
 
-          <p className="lede mt-6 max-w-xl text-mist">{SERVICES_HERO.lede}</p>
+          <p className="lede mt-6 max-w-3xl text-mist">{SERVICES_HERO.lede}</p>
         </div>
       </div>
     </section>
