@@ -19,10 +19,13 @@ export default function ServiceArticles({
   id,
   label,
   cards,
+  more,
 }: {
   id: string;
   label: string;
   cards: readonly ArticleCard[];
+  /** Optional link to this service's own page. */
+  more?: { href: string; label: string };
 }) {
   return (
     <section className="py-12 md:py-16" aria-labelledby={id}>
@@ -49,6 +52,13 @@ export default function ServiceArticles({
             );
           })}
         </div>
+        {more && (
+          <Reveal>
+            <Link href={more.href} className="mt-8 inline-flex items-center gap-2 font-medium text-accent-ink underline underline-offset-4">
+              {more.label} <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </Reveal>
+        )}
       </div>
     </section>
   );

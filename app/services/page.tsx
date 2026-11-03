@@ -50,7 +50,7 @@ export default function ServicesPage() {
       <ServicesHero />
       <SystemStrip />
       <WebsiteSection {...sceneProps(PILLAR_WEB_DESIGN)} />
-      <ServiceArticles id="web-articles" label="READ MORE: WEBSITES" cards={PILLAR_WEB_DESIGN.fanCards} />
+      <ServiceArticles id="web-articles" label="READ MORE: WEBSITES" cards={PILLAR_WEB_DESIGN.fanCards} more={{ href: '/services/website-design', label: 'See the full Website Design page' }} />
       <SeoSection {...sceneProps(PILLAR_SEO)} />
       <ServiceArticles id="seo-articles" label="READ MORE: SEO" cards={PILLAR_SEO.fanCards} />
       <EcommerceSection {...sceneProps(PILLAR_ECOMMERCE)} />

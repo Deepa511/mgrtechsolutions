@@ -30,7 +30,7 @@ export const SYSTEM_STRIP = {
       icon: 'web',
       name: 'Website Design & Development',
       line: 'A fast website made for your business.',
-      target: '#web-design',
+      target: '/services/website-design',
     },
     {
       index: '02',

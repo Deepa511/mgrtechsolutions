@@ -1,8 +1,11 @@
 'use client';
 
 import { useState, type PointerEvent } from 'react';
+import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import ServiceIcon, { type ServiceIconName } from '@/components/services/ServiceIcon';
+
+const MotionLink = motion.create(Link);
 
 type Props = {
   index: string;
@@ -25,8 +28,12 @@ export default function ServiceCard({ index, name, line, target, icon, cta }: Pr
     e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
   };
 
+  // A route (starts with "/") goes through next/link; "#anchor" targets stay plain
+  // anchors so the same-page scroll is handled by the shared Lenis handler.
+  const Root = target.startsWith('/') ? MotionLink : motion.a;
+
   return (
-    <motion.a
+    <Root
       href={target}
       onPointerEnter={() => setReplay((n) => n + 1)}
       onPointerMove={onMove}
@@ -54,6 +61,6 @@ export default function ServiceCard({ index, name, line, target, icon, cta }: Pr
       <p className="relative mt-auto pt-6 text-sm font-medium text-accent-ink transition-all [@media(hover:hover)]:translate-x-[-6px] [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:translate-x-0 [@media(hover:hover)]:group-hover:opacity-100 group-focus-visible:!translate-x-0 group-focus-visible:!opacity-100 motion-reduce:transition-none motion-reduce:!translate-x-0 motion-reduce:!opacity-100">
         {cta} <span aria-hidden="true">&rarr;</span>
       </p>
-    </motion.a>
+    </Root>
   );
 }

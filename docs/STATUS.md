@@ -258,4 +258,32 @@ reduced motion, 390px.
 
 Overview cards on /services have drawn-on line icons (ServiceIcon.tsx, all six draw together, static under reduced motion); hero paragraph widened to max-w-3xl.
 
+## Per-service pages: `/services/website-design` (first of six)
+
+New route `app/services/website-design/page.tsx`, built from the approved
+prototype. Copy lives in `src/data/website-design.ts`; components in
+`src/components/services/website-design/` (Wd*.tsx, styled by the ported prototype stylesheet `website-design.css`, every class prefixed `wd-`, colours from @theme tokens). Section sizes were checked against the prototype and match within a few pixels except Guides and Comparison (real post titles and reworded freelancer line). Sections, in order: Hero,
+Problem (expanding panels), Our approach (reuses the existing pinned
+`WebsiteSection` scene), four commitments, What's included (vertical card
+deck, 8 areas), How it works (scroll-filled rail), Pricing (Starter /
+Standard / Custom), Timeline (15-day to-scale bar), What success looks like
+(tickable checklist), Comparison, Who it's for, Industries, Guides, FAQ (11 Qs,
+FAQPage JSON-LD), Related services, Close. A desktop-only dot rail
+(`WdSectionRail`) shows where you are; section bands alternate plain / tint
+(`--color-cream-200`) / dark. Linked from the `/services` Web Design card and a
+"See the full Website Design page" link under its scene; added to the sitemap.
+
+**OPEN, needs Srii:**
+- All prices are `****` (`PRICE_MASK`). No real amounts exist yet.
+- Items marked `CONFIRM` in `website-design.ts` are standard deliverables that
+  the live site's tier lists do not state (hand-written code, image
+  compression, Core Web Vitals check, rebuild audit and redirects, "no ticket
+  system", local pickup or delivery).
+- Timeline is the live site's 15 days. `src/data/process.ts` still says five
+  weeks and `pricing-page.ts` still says The Site / The System / The Rebuild.
+- The other five services (SEO, E-commerce, Google Ads, Social Media,
+  Automation) still live only on `/services`. The 12-section template is ready
+  to copy. Not yet checked: Lenis rewind of the pinned scene on this route,
+  reduced-motion pass, and a screen-reader pass of the deck.
+
 Overview cards: hover lift, icon redraw and idle loops, pointer glow, slide-in "See how it works" arrow (ServiceCard.tsx). Hero second line reads "to get more calls, with one point of contact."

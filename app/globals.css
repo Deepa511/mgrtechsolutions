@@ -14,7 +14,16 @@
 
   --color-cream-50:  #FAF6EC;
   --color-cream-100: #F4EDDD;
+  /* Tinted band between cream-100 and cream-300: the alternating section
+     background on the per-service pages. */
+  --color-cream-200: #EBE1C8;
   --color-cream-300: #E4D9BE;
+
+  /* White card surface and the lighter greens used by the Website Design page. */
+  --color-sheet: #FFFFFF;
+  --color-mint-300: #7BE8AE;
+  --color-mint-200: #B8F2D1;
+  --color-mint-100: #D9F7E6;
 
   --color-accent:        #3CE08C;
   --color-accent-strong: #22C870;
@@ -88,6 +97,8 @@
   --color-sc-e9e9e9: #e9e9e9;
   --color-sc-ececec: #ececec;
   --color-sc-eeeeee: #eeeeee;
+  --color-sc-e6e6e6: #e6e6e6;
+  --color-sc-e9f6ee: #e9f6ee;
   --color-sc-f0f0f0: #f0f0f0;
   --color-sc-f1f1f1: #f1f1f1;
   --color-sc-f2d9a7: #f2d9a7;
@@ -308,6 +319,12 @@ html.lenis, html.lenis body { height: auto; }
 @keyframes stage-dot-fill {
   from { background-color: var(--color-cream-300); }
   to   { background-color: var(--color-accent-ink); }
+}
+
+/* Progress bar on the active tab of the Website Design "what's included" deck. */
+@keyframes wd-fill {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
 /* ─── Reduced motion (hard requirement) ────────────────────────── */
