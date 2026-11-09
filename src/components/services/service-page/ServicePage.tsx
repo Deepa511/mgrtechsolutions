@@ -33,7 +33,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
     <div className="wd">
       <JsonLd data={buildFaqPage(data.faq.items.map((f) => ({ q: f.q, a: f.a })))} />
       <SpSectionRail />
-      <SpHero data={data.hero} serviceName={data.meta.title} />
+      <SpHero data={data.hero} serviceName={data.meta.title} slug={data.slug} />
 
       <Band id="problem" labelledBy="sp-problem-heading">
         <SectionHead id="sp-problem-heading" eyebrow={data.problem.eyebrow} heading={data.problem.heading} lede={data.problem.lede} />

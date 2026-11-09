@@ -17,7 +17,7 @@ export const WD_HERO = {
   headline: 'A website that brings in calls,',
   headlineAccent: 'not just a page that exists.',
   lede:
-    'We design and build websites for contractors and local service businesses. Every site is made from scratch for your trade and your towns. It works on a phone, it is set up to be found on Google, and the domain, hosting and content are in your name.',
+    'We build custom websites for contractors and local service businesses. Fast on a phone, set up to be found on Google, and the domain, hosting and content stay in your name.',
   secondaryCta: 'Get a free site review',
   location: 'Ashland, MA · Serving MetroWest',
   facts: [

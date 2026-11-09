@@ -27,9 +27,9 @@ export const GOOGLE_ADS_PAGE: ServicePageData = {
 
   hero: {
     breadcrumb: 'GOOGLE ADS',
-    headline: 'SEO earns the map box over months.',
-    headlineAccent: "Ads put you in front of this week's searches.",
-    lede: 'When someone searches for your trade, a paid ad can put you at the top of the results this week, and you pay when they click. We build the ads, track every call and form, and manage the budget each month. You keep the ad accounts, and we add no markup to your ad spend.',
+    headline: 'Ads that ring the phone.',
+    headlineAccent: 'Counted, not guessed.',
+    lede: 'We run your Google and Meta ads and count every lead. Your ad accounts stay in your name, with no markup on ad spend.',
     secondaryCta: 'Get a free ads review',
     facts: [
       { title: 'Calls and forms tracked', text: 'We count real leads, not just clicks.' },

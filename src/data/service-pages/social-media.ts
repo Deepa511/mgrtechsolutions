@@ -29,9 +29,9 @@ export const SOCIAL_PAGE: ServicePageData = {
 
   hero: {
     breadcrumb: 'SOCIAL MEDIA',
-    headline: 'Your crew already does the impressive part.',
+    headline: 'Your crew does the work.',
     headlineAccent: 'We make sure people see it.',
-    lede: 'A homeowner comparing two contractors looks both up online. The one with recent photos and videos of real jobs usually gets the call. We come to the job site, shoot it, and handle the posting all month, so you never pick up a camera.',
+    lede: 'A homeowner comparing two contractors looks both up online. We shoot your jobs, write the captions and handle the posting all month, so you never pick up a camera.',
     secondaryCta: 'Get a free feed review',
     facts: [
       { title: 'We come to you', text: 'On-site shoots at your jobs, every month.' },

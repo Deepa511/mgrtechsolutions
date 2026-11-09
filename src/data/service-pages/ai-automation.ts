@@ -32,9 +32,9 @@ export const AI_AUTOMATION_PAGE: ServicePageData = {
 
   hero: {
     breadcrumb: 'AI AUTOMATION',
-    headline: 'The lead you already paid to earn',
-    headlineAccent: 'is the one you are most likely to lose.',
-    lede: 'You are on a roof, under a sink or in a truck, and the phone rings. If no one answers, the caller tries the next business. We set up replies that go out in seconds, follow-ups for quotes that went quiet, and one place that shows every call and inquiry.',
+    headline: "Don't lose the lead you paid for.",
+    headlineAccent: 'Replies in seconds, any hour.',
+    lede: 'When you cannot pick up, the caller gets a reply in seconds. We also follow up on quotes that went quiet and keep one log of every call and inquiry.',
     secondaryCta: 'Get a free response review',
     facts: [
       { title: 'Replies in seconds', text: 'Missed calls and forms get an answer right away.' },

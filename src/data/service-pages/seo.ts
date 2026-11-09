@@ -29,7 +29,7 @@ export const SEO_PAGE: ServicePageData = {
     breadcrumb: 'SEO',
     headline: "If you're not in the map box,",
     headlineAccent: "you're not in the running.",
-    lede: 'When someone near you searches for your trade, Google shows a map and three businesses first. We set up your Google listing, your town and service pages, and your articles so Google understands what you do and where you do it. It is a monthly service, and you get a report you can read.',
+    lede: 'We set up your Google listing, your town and service pages, and your articles so Google knows what you do and where. It is a monthly service with a report you can read.',
     secondaryCta: 'Get a free search review',
     facts: [
       { title: 'Monthly service', text: 'Work happens every month, not once.' },

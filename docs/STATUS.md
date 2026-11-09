@@ -258,6 +258,10 @@ reduced motion, 390px.
 
 Overview cards on /services have drawn-on line icons (ServiceIcon.tsx, all six draw together, static under reduced motion); hero paragraph widened to max-w-3xl.
 
+## Hero backdrop on the six service pages
+
+Every service hero (Website Design, SEO, E-commerce, Google Ads, Social Media, AI Automation) uses the home page hero's animation unchanged behind the title: the same `WireframeBall` with its default settings plus the same soft green glow. (Per-service line drawings and a dimmed, resized ball were tried first and removed.) An optional darkened photo can sit under it, like Stambaugh. Code: `HeroBackdrop.tsx`, `src/lib/hero-photo.ts`, CSS appended to `website-design.css` (`wd-bd-*`). The ball pauses off screen and shows one still frame under reduced motion. **To add a photo:** drop `public/hero/<slug>.webp` (slugs: website-design, seo, ecommerce, google-ads, social-media, ai-automation; about 2400 by 1200, under 250 KB, subject on the right) and rebuild; it is picked up automatically. No street addresses, plates or customers' faces. Existing animations were not changed.
+
 ## The combined /services page is removed
 
 There is no hub page any more. `/services` redirects (307, temporary) to `/services/website-design` via `next.config.ts`. The navbar Services dropdown links each name to its own page; the Services label itself still points at `/services` (so it stays highlighted on every service page) and lands on Website Design. Deleted with the page: `ServicesHero`, `SystemStrip`, `ServiceCard`, `ServiceIcon`, `ServiceDetails`, `ServicesClose`, `scroll-scenes/services.tsx`. Kept: `src/data/services.ts` (pillar data, still tested) and the scene components. Links that pointed at the old page were repointed (home pricing button and process close go to `/services/website-design#pricing`; the Website Design page's Related links go to the real service pages). If a hub comes back, remove the redirect and re-add `/services` to the sitemap.

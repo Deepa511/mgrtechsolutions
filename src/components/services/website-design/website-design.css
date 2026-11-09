@@ -408,3 +408,29 @@
 /* guides: the featured card fills its column, as in the prototype */
 .wd-gd>div:first-child{display:flex;align-self:stretch}
 .wd-gd>div:first-child>.wd-feat{flex:1}
+
+/* hero backdrop: the home page hero's animation (WireframeBall, unchanged) fills
+   the hero behind the title; an optional photo sits under it. Decorative; it sits
+   under the content and takes no clicks. */
+.wd-hero{position:relative;overflow:hidden}
+.wd-hero>.wd-wrap{position:relative;z-index:1}
+.wd-bd{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.wd-bd-photo{object-fit:cover;object-position:right center}
+.wd-bd-shade{position:absolute;inset:0;background:linear-gradient(to right,color-mix(in srgb,var(--night) 96%,transparent) 15%,color-mix(in srgb,var(--night) 86%,transparent) 100%)}
+
+/* equal-size hero: every service page reserves the same room for the title, the
+   paragraph and the facts strip, so the hero is the same shape on all six pages */
+@media(min-width:1024px){
+  .wd-hero h1{min-height:2.06em}
+  .wd-hero .wd-lede{min-height:4.95em}
+  .wd-hero .wd-strip{min-height:10.6rem}
+}
+@media(max-width:639px){
+  .wd-hero h1{min-height:4.12em}
+  .wd-hero .wd-lede{min-height:8.2em}
+  .wd-hero .wd-strip{min-height:21.5rem}
+}
+@media(min-width:640px) and (max-width:1023px){
+  .wd-hero .wd-lede{min-height:4.95em}
+  .wd-hero .wd-strip{min-height:15.6rem}
+}

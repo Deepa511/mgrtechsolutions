@@ -7,11 +7,13 @@ import type { ServicePageData } from '@/data/service-pages/types';
 import { Band, Bullets, SectionHead } from '@/components/services/website-design/WdBits';
 import ScrollRail from '@/components/services/website-design/ScrollRail';
 import SpDayBar from '@/components/services/service-page/SpDayBar';
+import HeroBackdrop from '@/components/services/service-page/HeroBackdrop';
 
 /** Hero (dark): promise, two actions, and four quick facts. */
-export function SpHero({ data, serviceName }: { data: ServicePageData['hero']; serviceName: string }) {
+export function SpHero({ data, serviceName, slug }: { data: ServicePageData['hero']; serviceName: string; slug: string }) {
   return (
     <section className="wd-night wd-hero" aria-labelledby="sp-hero-heading">
+      <HeroBackdrop slug={slug} />
       <div className="wd-wrap">
         <nav aria-label="Breadcrumb" className="wd-crumbs">
           <Link href="/">Home</Link>

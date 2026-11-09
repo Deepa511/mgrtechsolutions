@@ -28,7 +28,7 @@ export const ECOMMERCE_PAGE: ServicePageData = {
     breadcrumb: 'E-COMMERCE',
     headline: 'An online store',
     headlineAccent: 'that takes orders any hour.',
-    lede: 'Selling products online is different from a regular website. We build the whole store: your products, a safe checkout, and shipping and tax set up for how you really sell. Each product is set up so it can be found on its own in Google.',
+    lede: 'We build the whole store: your products, a safe checkout, and shipping and tax set up for how you sell. Each product can be found on its own in Google.',
     secondaryCta: 'Get a free store review',
     facts: [
       { title: 'Built for phones', text: 'Most shoppers browse and buy on a phone.' },
