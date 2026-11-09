@@ -136,7 +136,7 @@ export const PROCESS_CLOSE = {
     "One call. No forms, no funnels, no 'schedule a discovery session' runaround. Dial the number, we talk, and you'll know within one conversation whether this makes sense.",
   callLabel: 'Call',
   secondaryCta: 'See pricing',
-  secondaryHref: '/services',
+  secondaryHref: '/services/website-design#pricing',
 } as const;
 
 export const PROCESS = {

@@ -1,0 +1,17 @@
+/* Modifiers for the shared per-service page. Layout classes come from
+   ../website-design/website-design.css (wd- prefix); this file only adds
+   what that stylesheet does not cover: pricing with one or two columns. */
+
+/* two plans: two equal cards with a gap, the highlighted one still raised */
+@media(min-width:961px){
+  .wd .sp-plans-2{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:56rem;margin-inline:auto}
+  .wd .sp-plans-2 .wd-plan,
+  .wd .sp-plans-2 .wd-plan:first-child,
+  .wd .sp-plans-2 .wd-plan:last-child{border-radius:22px}
+  .wd .sp-plans-2 .wd-plan.wd-hl{margin:-10px 0;padding-block:46px 40px}
+  /* one plan: a single wide card */
+  .wd .sp-plans-1{grid-template-columns:minmax(0,1fr);max-width:40rem;margin-inline:auto}
+  .wd .sp-plans-1 .wd-plan,
+  .wd .sp-plans-1 .wd-plan:first-child,
+  .wd .sp-plans-1 .wd-plan:last-child{border-radius:22px}
+}

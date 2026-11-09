@@ -258,6 +258,10 @@ reduced motion, 390px.
 
 Overview cards on /services have drawn-on line icons (ServiceIcon.tsx, all six draw together, static under reduced motion); hero paragraph widened to max-w-3xl.
 
+## The combined /services page is removed
+
+There is no hub page any more. `/services` redirects (307, temporary) to `/services/website-design` via `next.config.ts`. The navbar Services dropdown links each name to its own page; the Services label itself still points at `/services` (so it stays highlighted on every service page) and lands on Website Design. Deleted with the page: `ServicesHero`, `SystemStrip`, `ServiceCard`, `ServiceIcon`, `ServiceDetails`, `ServicesClose`, `scroll-scenes/services.tsx`. Kept: `src/data/services.ts` (pillar data, still tested) and the scene components. Links that pointed at the old page were repointed (home pricing button and process close go to `/services/website-design#pricing`; the Website Design page's Related links go to the real service pages). If a hub comes back, remove the redirect and re-add `/services` to the sitemap.
+
 ## Per-service pages: `/services/website-design` (first of six)
 
 New route `app/services/website-design/page.tsx`, built from the approved
@@ -285,5 +289,13 @@ FAQPage JSON-LD), Related services, Close. A desktop-only dot rail
   Automation) still live only on `/services`. The 12-section template is ready
   to copy. Not yet checked: Lenis rewind of the pinned scene on this route,
   reduced-motion pass, and a screen-reader pass of the deck.
+
+## Per-service pages: the other five (SEO, E-commerce, Google Ads, Social Media, AI Automation)
+
+Routes `/services/seo`, `/services/ecommerce`, `/services/google-ads`, `/services/social-media`, `/services/ai-automation`. Each is a thin `app/services/<slug>/page.tsx` that renders the shared template `src/components/services/service-page/ServicePage.tsx` with one data file from `src/data/service-pages/<slug>.ts` (type: `types.ts`). Same twelve sections, same order, same look as Website Design (it reuses `website-design.css` and the `WdBits` / `ScrollRail` pieces; the Website Design page and its own components were left unchanged). The approach scene on each page is the existing scene for that service (`SeoScene`, `ShopScene`, `AdsScene`, `SocialScene`, `AutoScene`) on the dark band. Hub cards, article rows, navbar dropdown and sitemap link to the new pages. `src/data/service-pages/service-pages.test.ts` checks every page: same section shape, every blog slug resolves, no real prices, no em dashes, no company-size claims.
+
+Pricing shapes follow how each service is sold, with every amount shown as `****`: SEO two monthly plans (Standard, Premium), Google Ads one management plan (ad spend separate, no markup), Social three tiers (Basic, Standard, Growth), AI Automation and E-commerce one "quoted on the call" plan.
+
+**OPEN, needs Srii:** all prices; every line marked `CONFIRM` in the data files; AI Automation has no price or package source in the repo; **E-commerce is drafted** (not on the live site, no source material; platform, timeline and price shape are proposals); timeline phases on every page are proposals (SEO follows our own blog post, not a promise). Competitor research was structure-only; vendor statistics were left out. The live site appears to list website prices; the Website Design page still shows `****` as requested.
 
 Overview cards: hover lift, icon redraw and idle loops, pointer glow, slide-in "See how it works" arrow (ServiceCard.tsx). Hero second line reads "to get more calls, with one point of contact."

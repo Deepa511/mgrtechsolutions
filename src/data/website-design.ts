@@ -622,10 +622,10 @@ export const WD_RELATED = {
   heading: 'Related services.',
   lede: 'A website is the base. These services help it bring in more calls once it is live.',
   items: [
-    { title: 'SEO', text: 'Be found when people search on Google. Google Business Profile setup, service and town pages, and articles that answer customer questions.', href: '/services#seo' },
-    { title: 'Google Ads and Meta Ads', text: 'Ads that put you in front of customers now. Google search ads, Facebook and Instagram ads, and call and form tracking.', href: '/services#google-ads' },
-    { title: 'Social Media', text: 'Regular posts that show you are active. On-site photo and video shoots, captions and scheduling, and comments and messages answered.', href: '/services#social-media' },
-    { title: 'Automatic Replies', text: 'Every inquiry gets a reply right away. Missed-call text-back, instant auto-replies, and follow-up on quotes that went quiet.', href: '/services#automation' },
+    { title: 'SEO', text: 'Be found when people search on Google. Google Business Profile setup, service and town pages, and articles that answer customer questions.', href: '/services/seo' },
+    { title: 'Google Ads and Meta Ads', text: 'Ads that put you in front of customers now. Google search ads, Facebook and Instagram ads, and call and form tracking.', href: '/services/google-ads' },
+    { title: 'Social Media', text: 'Regular posts that show you are active. On-site photo and video shoots, captions and scheduling, and comments and messages answered.', href: '/services/social-media' },
+    { title: 'Automatic Replies', text: 'Every inquiry gets a reply right away. Missed-call text-back, instant auto-replies, and follow-up on quotes that went quiet.', href: '/services/ai-automation' },
   ],
 } as const;
 

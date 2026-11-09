@@ -23,8 +23,12 @@ const STATIC_ROUTES: { path: string; priority: number; changeFrequency: SitemapR
   { path: '/faq', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/industries', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/process', priority: 0.6, changeFrequency: 'monthly' },
-  { path: '/services', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/services/website-design', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/services/seo', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/services/ecommerce', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/services/google-ads', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/services/social-media', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/services/ai-automation', priority: 0.8, changeFrequency: 'monthly' },
 ];
 
 export function buildSitemapRoutes(): SitemapRoute[] {

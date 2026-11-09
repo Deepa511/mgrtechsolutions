@@ -1,0 +1,23 @@
+/** Line icons for the "what's included" deck: one SVG path each, drawn in a 48x48 box. */
+export const ICON = {
+  design: 'M6 10h36v28H6zM6 18h36M14 26h12M14 32h20',
+  phone: 'M16 5h16a3 3 0 0 1 3 3v32a3 3 0 0 1-3 3H16a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3zM21 37h6',
+  pin: 'M24 42s12-10 12-20a12 12 0 0 0-24 0c0 10 12 20 12 20zM24 27a5 5 0 1 0 0-10 5 5 0 0 0 0 10z',
+  chat: 'M10 12h28v20H22l-8 7v-7h-4zM17 20h14M17 26h9',
+  lock: 'M12 21h24v19H12zM17 21v-6a7 7 0 0 1 14 0v6M24 29v5',
+  play: 'M6 12h36v24H6zM20 18l10 6-10 6z',
+  cards: 'M8 14h32v24H8zM8 22h32M14 30h8',
+  doc: 'M12 6h18l8 8v28H12zM30 6v8h8M18 24h14M18 31h14',
+  chart: 'M8 40V8M8 40h32M14 32l8-10 7 6 11-16',
+  star: 'M24 6l5.5 11.5L42 19l-9 8.7 2.2 12.3L24 34l-11.2 6 2.2-12.3L6 19l12.5-1.5z',
+  mail: 'M6 12h36v24H6zM6 12l18 14 18-14',
+  bolt: 'M26 4L10 28h12l-2 16 18-24H26z',
+  cart: 'M6 8h6l5 24h22l4-16H14M20 40h.01M36 40h.01',
+  target: 'M24 6a18 18 0 1 0 0 36 18 18 0 0 0 0-36zM24 15a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM24 22a2 2 0 1 0 0 4 2 2 0 0 0 0-4z',
+  search: 'M20 8a12 12 0 1 0 0 24 12 12 0 0 0 0-24zM29 29l12 12',
+  camera: 'M6 14h10l3-5h10l3 5h10v26H6zM24 20a7 7 0 1 0 0 14 7 7 0 0 0 0-14z',
+  calendar: 'M8 10h32v30H8zM8 18h32M16 6v8M32 6v8',
+  box: 'M24 6l16 8v20l-16 8-16-8V14zM8 14l16 8 16-8M24 22v20',
+  card: 'M6 12h36v24H6zM6 20h36M12 30h8',
+  link: 'M20 28l8-8M17 22l-5 5a6 6 0 0 0 9 9l5-5M31 26l5-5a6 6 0 0 0-9-9l-5 5',
+} as const;

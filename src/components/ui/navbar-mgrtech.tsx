@@ -42,6 +42,12 @@ type NavItem = {
   name: string;
   link: string;
   /**
+   * The label has no page of its own: clicking it only opens the menu.
+   * `link` is still used as the key and to mark the item active on any page
+   * under that path.
+   */
+  menuOnly?: boolean;
+  /**
    * Optional mega-menu. Only routes that actually exist go in here — an
    * empty column is better than a link to a page we haven't built.
    */
@@ -53,21 +59,22 @@ const NAV_ITEMS: NavItem[] = [
   {
     name: 'Services',
     link: '/services',
+    menuOnly: true,
     menu: [
       {
         heading: 'BUILD',
         items: [
-          { name: 'Website Design & Development', link: '/services#web-design' },
-          { name: 'SEO', link: '/services#seo' },
-          { name: 'E-commerce', link: '/services#ecommerce' },
+          { name: 'Website Design & Development', link: '/services/website-design' },
+          { name: 'SEO', link: '/services/seo' },
+          { name: 'E-commerce', link: '/services/ecommerce' },
         ],
       },
       {
         heading: 'GROW',
         items: [
-          { name: 'Google Ads & PPC', link: '/services#google-ads' },
-          { name: 'Social Media Management', link: '/services#social-media' },
-          { name: 'AI Automation', link: '/services#automation' },
+          { name: 'Google Ads & PPC', link: '/services/google-ads' },
+          { name: 'Social Media Management', link: '/services/social-media' },
+          { name: 'AI Automation', link: '/services/ai-automation' },
         ],
       },
     ],
@@ -320,32 +327,54 @@ export default function NavbarMgrtech() {
                       setMenuOpen(item.link);
                     }}
                   >
-                    <span className="inline-flex items-center">
-                      <Link
-                        href={item.link}
-                        onClick={(e) => handleNavClick(e, item.link)}
-                        aria-current={isActive ? 'page' : undefined}
-                        className={linkClass}
-                      >
-                        <span className="relative">{item.name}</span>
-                        {underline}
-                      </Link>
+                    {item.menuOnly ? (
+                      // No page behind this label: the whole thing is one
+                      // button that opens and closes the dropdown.
                       <button
                         type="button"
                         aria-expanded={isMenuOpen}
                         aria-haspopup="true"
-                        aria-label={`${item.name} sections`}
+                        aria-current={isActive ? 'page' : undefined}
                         onClick={() => setMenuOpen(isMenuOpen ? null : item.link)}
-                        className="py-2 pr-2 text-neutral-300 transition-colors hover:text-white"
+                        className={`${linkClass} inline-flex items-center gap-1.5`}
                       >
+                        <span className="relative">{item.name}</span>
                         <ChevronDown
                           aria-hidden="true"
                           className={`h-3.5 w-3.5 transition-transform ${
                             isMenuOpen ? 'rotate-180' : ''
                           }`}
                         />
+                        {underline}
                       </button>
-                    </span>
+                    ) : (
+                      <span className="inline-flex items-center">
+                        <Link
+                          href={item.link}
+                          onClick={(e) => handleNavClick(e, item.link)}
+                          aria-current={isActive ? 'page' : undefined}
+                          className={linkClass}
+                        >
+                          <span className="relative">{item.name}</span>
+                          {underline}
+                        </Link>
+                        <button
+                          type="button"
+                          aria-expanded={isMenuOpen}
+                          aria-haspopup="true"
+                          aria-label={`${item.name} sections`}
+                          onClick={() => setMenuOpen(isMenuOpen ? null : item.link)}
+                          className="py-2 pr-2 text-neutral-300 transition-colors hover:text-white"
+                        >
+                          <ChevronDown
+                            aria-hidden="true"
+                            className={`h-3.5 w-3.5 transition-transform ${
+                              isMenuOpen ? 'rotate-180' : ''
+                            }`}
+                          />
+                        </button>
+                      </span>
+                    )}
 
                     <AnimatePresence>
                       {isMenuOpen && (
@@ -477,16 +506,22 @@ export default function NavbarMgrtech() {
 
                 return (
                   <div key={item.link}>
-                    <Link
-                      href={item.link}
-                      onClick={(e) => handleNavClick(e, item.link)}
-                      aria-current={isActive ? 'page' : undefined}
-                      className={`block py-2 text-lg transition-colors ${
-                        isActive ? 'text-emerald-400' : 'text-neutral-300 hover:text-emerald-400'
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
+                    {item.menuOnly ? (
+                      <p className={`py-2 text-lg ${isActive ? 'text-emerald-400' : 'text-neutral-300'}`}>
+                        {item.name}
+                      </p>
+                    ) : (
+                      <Link
+                        href={item.link}
+                        onClick={(e) => handleNavClick(e, item.link)}
+                        aria-current={isActive ? 'page' : undefined}
+                        className={`block py-2 text-lg transition-colors ${
+                          isActive ? 'text-emerald-400' : 'text-neutral-300 hover:text-emerald-400'
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
 
                     {/* Mega-menu contents render inline in the drawer —
                         a nested disclosure inside an open drawer is more
