@@ -18,7 +18,7 @@ import WdGuides from '@/components/services/website-design/WdGuides';
 import WdFaq from '@/components/services/website-design/WdFaq';
 import WdRelated from '@/components/services/website-design/WdRelated';
 import WdClose from '@/components/services/website-design/WdClose';
-import WdSectionRail from '@/components/services/website-design/WdSectionRail';
+import SectionBar from '@/components/services/service-page/SectionBar';
 import { Band, SectionHead } from '@/components/services/website-design/WdBits';
 import {
   WD_FAQ,
@@ -39,7 +39,7 @@ export default function WebsiteDesignPage() {
   return (
     <div className="wd">
       <JsonLd data={buildFaqPage(WD_FAQ.items.map((f) => ({ q: f.q, a: f.a })))} />
-      <WdSectionRail />
+      <SectionBar />
       <WdHero />
 
       <Band id="problem" labelledBy="wd-problem-heading">

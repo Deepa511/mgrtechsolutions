@@ -1,14 +1,24 @@
 import Image from 'next/image';
 import { heroPhotoFor } from '@/lib/hero-photo';
-import WireframeBall from '@/components/motion/WireframeBall';
+import HeroArt from '@/components/services/service-page/hero-art/HeroArt';
+import type { Variant } from '@/components/services/service-page/hero-art/painters';
+
+/** Which drawing each service page gets. */
+const VARIANT: Record<string, Variant> = {
+  'website-design': 'web',
+  seo: 'seo',
+  'google-ads': 'ads',
+  'social-media': 'social',
+  ecommerce: 'shop',
+  'ai-automation': 'ai',
+};
 
 /**
- * The layer behind a service page's title: exactly the home page hero's
- * animation (the same WireframeBall with its default settings, plus the same
- * soft green glow), with an optional darkened photo
- * (public/hero/<slug>.webp) under it. Decorative only: it takes no clicks and
- * is hidden from screen readers. WireframeBall pauses off screen and paints
- * one still frame under reduced motion.
+ * The layer behind a service page's title: that page's own animated drawing
+ * (page layouts, map contours, target rings, post cards, delivery routes or a
+ * node network), faded out on the left so the title stays clean, with an
+ * optional darkened photo (public/hero/<slug>.webp) under it. Decorative only:
+ * it takes no clicks and is hidden from screen readers.
  */
 export default function HeroBackdrop({ slug }: { slug: string }) {
   const photo = heroPhotoFor(slug);
@@ -20,7 +30,7 @@ export default function HeroBackdrop({ slug }: { slug: string }) {
           <div className="wd-bd-shade" />
         </>
       )}
-      <WireframeBall />
+      <HeroArt variant={VARIANT[slug] ?? 'seo'} />
       <div
         className="pointer-events-none absolute inset-0"
         style={{

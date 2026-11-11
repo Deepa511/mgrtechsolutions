@@ -12,7 +12,7 @@ import HeroBackdrop from '@/components/services/service-page/HeroBackdrop';
 /** Hero (dark): promise, two actions, and four quick facts. */
 export function SpHero({ data, serviceName, slug }: { data: ServicePageData['hero']; serviceName: string; slug: string }) {
   return (
-    <section className="wd-night wd-hero" aria-labelledby="sp-hero-heading">
+    <section id="overview" className="wd-night wd-hero" aria-labelledby="sp-hero-heading">
       <HeroBackdrop slug={slug} />
       <div className="wd-wrap">
         <nav aria-label="Breadcrumb" className="wd-crumbs">

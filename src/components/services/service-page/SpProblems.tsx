@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type KeyboardEvent } from 'react';
+import { useEffect, useRef, useState, type KeyboardEvent } from 'react';
 import type { ProblemItem } from '@/data/service-pages/types';
 import { Bullets, ReadLink } from '@/components/services/website-design/WdBits';
 
@@ -12,18 +12,33 @@ import { Bullets, ReadLink } from '@/components/services/website-design/WdBits';
 export default function SpProblems({ items }: { items: readonly ProblemItem[] }) {
   const [open, setOpen] = useState(0);
 
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const clearTimer = () => {
+    if (timer.current) clearTimeout(timer.current);
+    timer.current = null;
+  };
+  useEffect(() => clearTimer, []);
+
+  // A mouse has to rest on a panel for 150ms before it opens, so sweeping across
+  // the row does not flicker. Leaving first cancels it. Clicks and keys open at once.
   const onEnter = (i: number) => {
-    if (window.matchMedia('(hover:hover) and (min-width:961px)').matches) setOpen(i);
+    clearTimer();
+    if (!window.matchMedia('(hover:hover) and (min-width:961px)').matches) return;
+    timer.current = setTimeout(() => setOpen(i), 150);
+  };
+  const openNow = (i: number) => {
+    clearTimer();
+    setOpen(i);
   };
   const onKey = (e: KeyboardEvent, i: number) => {
     const n = items.length;
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
       e.preventDefault();
-      setOpen((i + 1) % n);
+      openNow((i + 1) % n);
     }
     if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
       e.preventDefault();
-      setOpen((i + n - 1) % n);
+      openNow((i + n - 1) % n);
     }
   };
 
@@ -36,7 +51,8 @@ export default function SpProblems({ items }: { items: readonly ProblemItem[] })
             key={p.tag}
             className={`wd-xp${on ? ' wd-on' : ''}`}
             onMouseEnter={() => onEnter(i)}
-            onClick={() => setOpen(i)}
+            onMouseLeave={clearTimer}
+            onClick={() => openNow(i)}
           >
             <div className="wd-in">
               <span className="wd-tag">{p.tag}</span>

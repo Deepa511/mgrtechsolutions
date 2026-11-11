@@ -8,7 +8,7 @@ import SpApproach from '@/components/services/service-page/SpApproach';
 import SpIncluded from '@/components/services/service-page/SpIncluded';
 import SpIndustries from '@/components/services/service-page/SpIndustries';
 import SpProblems from '@/components/services/service-page/SpProblems';
-import SpSectionRail from '@/components/services/service-page/SpSectionRail';
+import SectionBar from '@/components/services/service-page/SectionBar';
 import SpSuccess from '@/components/services/service-page/SpSuccess';
 import {
   SpClose,
@@ -32,7 +32,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
   return (
     <div className="wd">
       <JsonLd data={buildFaqPage(data.faq.items.map((f) => ({ q: f.q, a: f.a })))} />
-      <SpSectionRail />
+      <SectionBar />
       <SpHero data={data.hero} serviceName={data.meta.title} slug={data.slug} />
 
       <Band id="problem" labelledBy="sp-problem-heading">

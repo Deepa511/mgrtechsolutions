@@ -6,7 +6,7 @@ import HeroBackdrop from '@/components/services/service-page/HeroBackdrop';
 /** Hero (dark): promise, two actions, and four quick facts. */
 export default function WdHero() {
   return (
-    <section className="wd-night wd-hero" aria-labelledby="wd-hero-heading">
+    <section id="overview" className="wd-night wd-hero" aria-labelledby="wd-hero-heading">
       <HeroBackdrop slug="website-design" />
       <div className="wd-wrap">
         <nav aria-label="Breadcrumb" className="wd-crumbs">

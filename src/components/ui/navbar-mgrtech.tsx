@@ -216,7 +216,7 @@ export default function NavbarMgrtech() {
       };
 
   return (
-    <header className="sticky top-0 z-50 flex w-full justify-center">
+    <header data-site-header className="sticky top-0 z-50 flex w-full justify-center">
       <motion.div
         style={motionStyle}
         className={

@@ -402,3 +402,61 @@ html.lenis, html.lenis body { height: auto; }
     will-change: auto !important;
   }
 }
+
+/* ─── Footer phone number ──────────────────────────────────────── */
+/* Very large, on one line at every width. The size is a share of the box's own
+   width (cqw), so it scales to fill the row down to a 375px phone. The digits
+   appear in sequence once (data-phase), and are simply visible with reduced
+   motion or before the script runs. */
+.footer-call {
+  container-type: inline-size;
+}
+
+.footer-phone {
+  display: block;
+  margin-top: 0.75rem;
+  white-space: nowrap;
+  font-size: min(15.4cqw, 12rem);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-cream-50);
+  transition: color 0.2s;
+}
+
+.footer-phone:hover {
+  color: var(--color-accent);
+}
+
+.footer-phone__ch {
+  display: inline-block;
+  transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+}
+
+.footer-phone[data-phase='wait'] .footer-phone__ch {
+  opacity: 0;
+  transform: translateY(0.18em);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-phone[data-phase] .footer-phone__ch {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Service pages: the navbar steps aside while scrolling down (html[data-nav] is
+   set by the section bar) and comes back on scroll up. */
+[data-site-header] {
+  transition: transform 0.3s;
+}
+html[data-nav='hidden'] [data-site-header] {
+  transform: translateY(-100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-site-header] {
+    transition: none;
+  }
+}
