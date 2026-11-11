@@ -14,13 +14,13 @@ export default function WdClose() {
           </h2>
           <p className="wd-lede">{WD_CLOSE.body}</p>
           <div className="wd-btnrow">
-            <a className="wd-btn wd-btn-primary" href={SITE.phoneHref}>
-              Call <span className="wd-tel">{SITE.phone}</span>
+            <a className="wd-btn wd-btn-primary" href={SITE.phoneHref} aria-label={`Call ${SITE.name} at ${SITE.phone}`}>
+              Call us
             </a>
             <a className="wd-btn wd-btn-ghost" href={`mailto:${SITE.email}`}>{WD_CLOSE.emailCta}</a>
           </div>
           <p className="wd-reach">
-            Phone: <b className="wd-tel">{SITE.phone}</b> &middot; Email: <b>{SITE.email}</b>
+            Email: <b>{SITE.email}</b>
           </p>
         </Reveal>
       </div>

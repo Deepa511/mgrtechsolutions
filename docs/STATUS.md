@@ -314,3 +314,6 @@ Overview cards: hover lift, icon redraw and idle loops, pointer glow, slide-in "
 ## Hero backgrounds (2026-11-11)
 - Each service page has its own animated hero drawing (canvas, `service-page/hero-art/painters.ts`, run by `HeroArt.tsx`, chosen in `HeroBackdrop.tsx`). Approved from the HTML previews: SEO = map contours with a pin and ripple; Website Design = a phone that rings; Google Ads = a radar whose blips ring; Social Media = a tilted tile wall with hearts; E-commerce = orders at every hour; AI Automation = messages in, a reply typed at the gate, replies out. They replace the shared wireframe ball.
 - The canvas sits above the facts strip (bottom inset in `website-design.css`), fades out toward the title on wide screens, is 60% strength on phones, pauses off screen, and paints one still frame under reduced motion. Colour is read from `--color-accent` at runtime; the mono font from `--font-geist-mono`.
+
+## Phone number on service pages (2026-11-11)
+- The number now shows only in the navbar button, the hero button and the big footer number. The FAQ side button is now "Ask a question" (jumps to the closing section); the closing button says "Call us" (tap to call, aria-label keeps the number); the "Phone: ... Email: ..." line is now just the email.

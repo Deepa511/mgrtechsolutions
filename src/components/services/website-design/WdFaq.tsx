@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Reveal from '@/components/motion/Reveal';
-import { SITE } from '@/data/site';
 import { WD_FAQ } from '@/data/website-design';
 
 /** FAQ: sticky side column beside native accordions (no JS needed). */
@@ -14,9 +13,7 @@ export default function WdFaq() {
             <h2 id="wd-faq-heading">{WD_FAQ.heading}</h2>
             <p className="wd-lede" style={{ fontSize: '1rem' }}>{WD_FAQ.lede}</p>
             <div className="wd-btnrow" style={{ marginTop: 22 }}>
-              <a className="wd-btn wd-btn-primary" href={SITE.phoneHref}>
-                Call <span className="wd-tel">{SITE.phone}</span>
-              </a>
+              <a className="wd-btn wd-btn-ghost" href="#contact">Ask a question</a>
             </div>
           </div>
         </Reveal>

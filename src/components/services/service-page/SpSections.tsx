@@ -330,9 +330,7 @@ export function SpFaq({ data }: { data: ServicePageData['faq'] }) {
             <h2 id="sp-faq-heading">{data.heading}</h2>
             <p className="wd-lede" style={{ fontSize: '1rem' }}>{data.lede}</p>
             <div className="wd-btnrow" style={{ marginTop: 22 }}>
-              <a className="wd-btn wd-btn-primary" href={SITE.phoneHref}>
-                Call <span className="wd-tel">{SITE.phone}</span>
-              </a>
+              <a className="wd-btn wd-btn-ghost" href="#contact">Ask a question</a>
             </div>
           </div>
         </Reveal>
@@ -395,13 +393,13 @@ export function SpClose({ data }: { data: ServicePageData['close'] }) {
           </h2>
           <p className="wd-lede">{data.body}</p>
           <div className="wd-btnrow">
-            <a className="wd-btn wd-btn-primary" href={SITE.phoneHref}>
-              Call <span className="wd-tel">{SITE.phone}</span>
+            <a className="wd-btn wd-btn-primary" href={SITE.phoneHref} aria-label={`Call ${SITE.name} at ${SITE.phone}`}>
+              Call us
             </a>
             <a className="wd-btn wd-btn-ghost" href={`mailto:${SITE.email}`}>{data.emailCta}</a>
           </div>
           <p className="wd-reach">
-            Phone: <b className="wd-tel">{SITE.phone}</b> &middot; Email: <b>{SITE.email}</b>
+            Email: <b>{SITE.email}</b>
           </p>
         </Reveal>
       </div>

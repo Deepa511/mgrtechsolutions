@@ -465,3 +465,7 @@ html[data-nav="shown"] .wd-bar[data-show="true"]{transform:translateY(var(--bar-
 @media(max-width:759px){.wd-bd-art{opacity:.6}}
 @media(min-width:640px) and (max-width:1023px){.wd-bd-art{bottom:16rem;height:calc(100% - 16rem)}}
 @media(max-width:639px){.wd-bd-art{bottom:0;height:100%}}
+
+/* ghost button on a light band (FAQ side column) */
+.wd-faqside .wd-btn-ghost{border-color:var(--ink);color:var(--ink)}
+.wd-faqside .wd-btn-ghost:hover{border-color:var(--accent-ink);color:var(--accent-ink)}
