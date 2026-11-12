@@ -317,3 +317,10 @@ Overview cards: hover lift, icon redraw and idle loops, pointer glow, slide-in "
 
 ## Phone number on service pages (2026-11-11)
 - The number now shows only in the navbar button, the hero button and the big footer number. The FAQ side button is now "Ask a question" (jumps to the closing section); the closing button says "Call us" (tap to call, aria-label keeps the number); the "Phone: ... Email: ..." line is now just the email.
+
+## Section list pilot on Website Design (2026-11-12)
+- Pilot on /services/website-design only (SectionBar variant="rail", classes scoped under .wd-rail-on): at 1100px and up an always-open list of all 14 sections on the left (current one highlighted, Pricing and FAQ bold, progress line, a Get a free review button); content is shifted right to stay clear of it. Under 1100px a top strip of swipeable chips (current one auto-centred). The navbar still shows only when scrolling up. The other five service pages keep the top bar. Roll out by passing variant="rail" and adding wd-rail-on to a page.
+
+## Section navigation comparison on the other five pages (2026-11-12)
+- Website Design keeps the left-list pilot. SEO = merged header (one slim bar: logo, current section dropdown, Call, Menu; replaces the navbar after the top). Google Ads = collapsible left list on wide screens, a Sections dropdown bar on phones. Social Media = Jump to Pricing / How it works / FAQ / Free review pills in the hero plus the existing top bar. E-commerce and AI Automation unchanged. Chosen per page in NAV_STYLE in ServicePage.tsx; styles in service-page-nav.css; logic in useSectionNav.ts and SectionNav.tsx.
+- Website Design phone hero: ripple period is the 5.2 in painters.ts (web, "rings from the call button"); smaller = faster.

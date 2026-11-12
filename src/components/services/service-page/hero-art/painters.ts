@@ -185,7 +185,8 @@ export function web(env: Env): Painter {
       const sx = cx - pw / 2 + 10, sy = cy - ph / 2 + 28, sw = pw - 20, sh = ph - 28 - 14, bx = cx, by = sy + sh - 26;
       // rings from the call button
       for (let k = 0; k < 3; k++) {
-        const p = (t / 2.6 + k / 3) % 1;
+        // Ripple period in seconds: bigger = slower (was 2.6).
+        const p = (t / 5.2 + k / 3) % 1;
         g.beginPath(); g.arc(bx, by, 18 + p * pw * 1.25, 0, TAU);
         g.strokeStyle = c((1 - p) * 0.5); g.lineWidth = 1.5; g.stroke();
       }

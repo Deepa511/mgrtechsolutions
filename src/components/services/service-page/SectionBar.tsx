@@ -34,8 +34,10 @@ const SHORT = [
  * Visible from page load. It steps out of the way only while the site footer is
  * on screen, so it never sits over the footer phone number.
  */
-export default function SectionBar() {
+export default function SectionBar({ variant = 'bar' }: { variant?: 'bar' | 'rail' }) {
   const [current, setCurrent] = useState(0);
+  const railRef = useRef<HTMLElement>(null);
+  const stripRef = useRef<HTMLUListElement>(null);
   // The bar appears once you scroll past the top; the site navbar steps aside
   // while scrolling down and returns (with the bar under it) on scrolling up.
   const [scrolled, setScrolled] = useState(false);
@@ -54,6 +56,8 @@ export default function SectionBar() {
       setCurrent(cur);
 
       const y = window.scrollY;
+      const max = document.documentElement.scrollHeight - vh;
+      railRef.current?.style.setProperty('--p', max > 0 ? String(Math.min(1, Math.max(0, y / max))) : '0');
       const dy = y - lastY;
       setScrolled(y > TOP_ZONE);
       if (y <= TOP_ZONE) {
@@ -84,7 +88,9 @@ export default function SectionBar() {
     e.preventDefault();
     lockUntil.current = Date.now() + 1800;
     const lenis = getLenisInstance();
-    if (lenis) lenis.scrollTo(target, { offset: -HEADER });
+    // Rail variant: no top bar on wide screens, a 48px chip strip below 1100px.
+    const offset = variant === 'rail' ? (window.innerWidth >= 1100 ? 24 : 56) : HEADER;
+    if (lenis) lenis.scrollTo(target, { offset: -offset });
     else target.scrollIntoView({ behavior: 'auto' }); // CSS scroll-margin-top keeps it clear of the header
     window.history.replaceState(null, '', `#${id}`);
   };
@@ -93,6 +99,54 @@ export default function SectionBar() {
   // Which of the five short links is "current": the latest one already passed.
   const order = SECTIONS.map((s) => s.id as string);
   const shortCurrent = [...SHORT].reverse().find((s) => order.indexOf(s.id) <= current)?.id;
+
+  // Keep the current chip in view in the small-screen strip (scrolls the strip, never the page).
+  useEffect(() => {
+    if (variant !== 'rail') return;
+    const strip = stripRef.current;
+    const a = strip?.querySelector<HTMLElement>('[aria-current="true"]');
+    if (!strip || !a) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    strip.scrollTo({ left: a.offsetLeft - strip.clientWidth / 2 + a.clientWidth / 2, behavior: reduce ? 'auto' : 'smooth' });
+  }, [current, variant]);
+
+  if (variant === 'rail') {
+    return (
+      <>
+        <nav ref={railRef} aria-label="Page sections" className="wd-sidenav">
+          <div className="wd-sn-prog" aria-hidden="true"><i /></div>
+          <p className="wd-sn-title">On this page</p>
+          <ol>
+            {SECTIONS.map((s, i) => (
+              <li key={s.id}>
+                <a
+                  href={`#${s.id}`}
+                  onClick={jump(s.id)}
+                  className={s.id === 'pricing' || s.id === 'faq' ? 'wd-sn-key' : undefined}
+                  aria-current={s.id === currentId ? 'true' : undefined}
+                >
+                  <span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                  {s.label}
+                </a>
+              </li>
+            ))}
+          </ol>
+          <a className="wd-sn-cta" href="#contact" onClick={jump('contact')}>Get a free review</a>
+        </nav>
+        <nav aria-label="Page sections" className="wd-chips" data-show={scrolled ? 'true' : 'false'}>
+          <ul ref={stripRef}>
+            {SECTIONS.map((s) => (
+              <li key={s.id}>
+                <a href={`#${s.id}`} onClick={jump(s.id)} aria-current={s.id === currentId ? 'true' : undefined}>
+                  {s.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </>
+    );
+  }
 
   return (
     <nav aria-label="Page sections" className="wd-bar" data-show={scrolled ? 'true' : 'false'}>

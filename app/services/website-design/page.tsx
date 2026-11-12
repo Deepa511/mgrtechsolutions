@@ -37,9 +37,9 @@ export const metadata: Metadata = {
 
 export default function WebsiteDesignPage() {
   return (
-    <div className="wd">
+    <div className="wd wd-rail-on">
       <JsonLd data={buildFaqPage(WD_FAQ.items.map((f) => ({ q: f.q, a: f.a })))} />
-      <SectionBar />
+      <SectionBar variant="rail" />
       <WdHero />
 
       <Band id="problem" labelledBy="wd-problem-heading">

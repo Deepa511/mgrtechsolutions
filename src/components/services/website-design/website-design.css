@@ -469,3 +469,36 @@ html[data-nav="shown"] .wd-bar[data-show="true"]{transform:translateY(var(--bar-
 /* ghost button on a light band (FAQ side column) */
 .wd-faqside .wd-btn-ghost{border-color:var(--ink);color:var(--ink)}
 .wd-faqside .wd-btn-ghost:hover{border-color:var(--accent-ink);color:var(--accent-ink)}
+
+/* ===== PILOT (Website Design only): section list on the left, chip strip on small screens ===== */
+.wd-rail-on section[id]{scroll-margin-top:24px}
+.wd-rail-on .wd-sidenav{display:none}
+.wd-rail-on .wd-chips{position:fixed;z-index:40;top:0;left:0;right:0;opacity:0;pointer-events:none;transform:translateY(-100%);transition:opacity .3s,transform .3s;background:var(--night);border-bottom:1px solid var(--night-line);padding:env(safe-area-inset-top,0px) 0 0}
+.wd-rail-on .wd-chips[data-show="true"]{opacity:1;pointer-events:auto;transform:translateY(0)}
+html[data-nav="shown"] .wd-rail-on .wd-chips[data-show="true"]{transform:translateY(60px)}
+.wd-rail-on .wd-chips ul{list-style:none;margin:0;padding:2px max(10px,env(safe-area-inset-left,0px));display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.wd-rail-on .wd-chips ul::-webkit-scrollbar{display:none}
+.wd-rail-on .wd-chips li{flex:none}
+.wd-rail-on .wd-chips a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;font:500 14px/1 var(--sans);color:var(--mist);text-decoration:none;white-space:nowrap}
+.wd-rail-on .wd-chips a[aria-current="true"]{color:var(--on-night);font-weight:600;background:color-mix(in srgb,var(--accent) 16%,transparent);box-shadow:inset 0 0 0 1.5px var(--accent)}
+.wd-rail-on .wd-chips a:focus-visible,.wd-sidenav a:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+@media(prefers-reduced-motion:reduce){.wd-rail-on .wd-chips{transition:none;--x:0}html[data-nav="shown"] .wd-rail-on .wd-chips[data-show="true"]{transform:translateY(80px)}}
+@media(max-width:1099px){.wd-rail-on section[id]{scroll-margin-top:56px}}
+@media(min-width:1100px){
+  .wd-rail-on .wd-chips{display:none}
+  .wd-rail-on .wd-sidenav{display:block;position:fixed;z-index:45;left:16px;top:50%;transform:translateY(-50%);width:196px;max-height:calc(100vh - 32px);overflow-y:auto;padding:0 8px 12px;background:color-mix(in srgb,var(--night) 94%,transparent);backdrop-filter:blur(10px);border:1px solid var(--night-line);border-radius:16px;box-shadow:0 10px 30px color-mix(in srgb,var(--night) 35%,transparent)}
+  .wd-rail-on .wd-sn-prog{height:2px;margin:0 -8px 10px;background:var(--night-line);border-radius:16px 16px 0 0;overflow:hidden}
+  .wd-rail-on .wd-sn-prog i{display:block;height:100%;width:calc(var(--p,0) * 100%);background:var(--accent)}
+  .wd-rail-on .wd-sn-title{margin:0 0 6px 10px;font:500 11px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+  .wd-rail-on .wd-sidenav ol{list-style:none;margin:0;padding:0}
+  .wd-rail-on .wd-sidenav ol a{display:flex;align-items:center;gap:8px;min-height:30px;padding:4px 10px;border-left:2px solid transparent;border-radius:0 8px 8px 0;font:400 13.5px/1.25 var(--sans);color:var(--mist);text-decoration:none}
+  .wd-rail-on .wd-sidenav ol a span{font:500 10px/1 var(--mono);letter-spacing:.06em;color:var(--accent);opacity:.7}
+  .wd-rail-on .wd-sidenav ol a:hover{color:var(--on-night)}
+  .wd-rail-on .wd-sidenav ol a.wd-sn-key{font-weight:600;color:var(--on-night)}
+  .wd-rail-on .wd-sidenav ol a[aria-current="true"]{color:var(--on-night);font-weight:600;border-left-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+  .wd-rail-on .wd-sn-cta{display:block;margin-top:10px;padding:10px 12px;border-radius:999px;background:var(--accent);color:var(--night);font:600 13px/1.2 var(--sans);text-align:center;text-decoration:none}
+  .wd-rail-on .wd-sn-cta:hover{background:var(--accent-strong)}
+  /* keep the page content clear of the list */
+  .wd-rail-on .wd-approach .sc-wrap{margin-left:max(224px,calc((100% - 76rem)/2));margin-right:0;width:calc(100% - max(224px,calc((100% - 76rem)/2)) - 16px)}
+  .wd-rail-on .wd-wrap{margin-left:max(224px,calc((100% - 76rem)/2));margin-right:0;width:calc(100% - max(224px,calc((100% - 76rem)/2)) - 16px);max-width:76rem}
+}
