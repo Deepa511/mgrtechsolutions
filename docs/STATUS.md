@@ -224,7 +224,6 @@ Merged `fix/stat-sourcing` into `main`. Three commits:
 | **Testimonial permission** | Two quotes run as disclosed placeholders. |
 | **Calendly / booking link** | No URL exists. "Book a Slot" was deliberately left off the 2026-09-13 Contact rebuild for this reason — add it once a real link exists (spec §11). |
 | **Logo** | PNG + app icons done. An SVG would be sharper. |
-| **Pre-existing lint error** | `src/components/contact/ReviewForm.tsx:22` — `setState` inside an effect. Present on `main` before this work; not a regression. |
 
 ---
 
@@ -327,3 +326,7 @@ Overview cards: hover lift, icon redraw and idle loops, pointer glow, slide-in "
 
 ## Problem cards no longer shift the page (2026-11-13)
 - The row of problem cards (.wd-xps) changed height with whichever card was open, so Our approach below it moved while hovering. useStableHeight.ts measures the tallest open state (transitions off, no paint) and sets it as a hard row height (not min-height: mid-animation text wraps taller than any resting state, and cards clip with overflow hidden; .wd-xps also has contain:layout); re-measures on resize and font load; not applied under 961px. Used by SpProblems and WdProblems. Trade-off: at about 1100px the row stays up to ~150px taller than a short open card needs.
+
+## Health-check fixes (2026-11-13)
+- Fixed: duplicate React key in the comparison tables (cells keyed by index); logo image warning (width/height now match the PNG, 537x512); home work cards overflowing 20px at 375px (grid-cols-1); setState-in-effect lint errors in ReviewForm.tsx and QuoteForm.tsx (useSyncExternalStore). Sweep of 13 pages at 1440 and 375: no console errors or warnings, no horizontal overflow. npm run build --webpack passes.
+- Trap: running vitest from a shell whose cwd is lowercase drive c: fails every suite with Cannot read properties of undefined (reading config) (two module copies). Run it from C: (uppercase) and all 173 pass.

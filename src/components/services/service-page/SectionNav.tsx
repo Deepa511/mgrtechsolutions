@@ -103,7 +103,7 @@ export default function PageNav() {
     <div className="sn-merged" data-show={scrolled ? 'true' : 'false'}>
       <div className="sn-bar">
         <Link href="/" className="sn-mark" aria-label={`${SITE.name} home`}>
-          <span><Image src="/brand/logo-mark.png" alt="" width={32} height={32} className="sn-mark-img" /></span>
+          <span><Image src="/brand/logo-mark.png" alt="" width={537} height={512} className="sn-mark-img" /></span>
         </Link>
         <button
           ref={secBtn}

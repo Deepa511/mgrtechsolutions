@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from 'react';
 import {
   quoteSchema,
   mapQuoteIssues,
@@ -14,6 +14,8 @@ import { SITE } from '@/data/site';
 
 type Errors = Partial<Record<QuoteRenderableKey | 'form', string>>;
 type Status = 'idle' | 'sending' | 'sent';
+
+const subscribeNever = () => () => {};
 
 const inputBase =
   'w-full rounded-xl border bg-cream-50 px-4 py-3 text-[1rem] text-forest-950 transition placeholder:text-ink-soft';
@@ -30,12 +32,9 @@ export default function QuoteForm() {
   });
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<Status>('idle');
-  const [mounted, setMounted] = useState(false);
+  // false while rendering on the server and during hydration, true once on the client
+  const mounted = useSyncExternalStore(subscribeNever, () => true, () => false);
   const successHeadingRef = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     if (status === 'sent') {
