@@ -330,3 +330,7 @@ Overview cards: hover lift, icon redraw and idle loops, pointer glow, slide-in "
 ## Health-check fixes (2026-11-13)
 - Fixed: duplicate React key in the comparison tables (cells keyed by index); logo image warning (width/height now match the PNG, 537x512); home work cards overflowing 20px at 375px (grid-cols-1); setState-in-effect lint errors in ReviewForm.tsx and QuoteForm.tsx (useSyncExternalStore). Sweep of 13 pages at 1440 and 375: no console errors or warnings, no horizontal overflow. npm run build --webpack passes.
 - Trap: running vitest from a shell whose cwd is lowercase drive c: fails every suite with Cannot read properties of undefined (reading config) (two module copies). Run it from C: (uppercase) and all 173 pass.
+
+## Dead-code cleanup (2026-11-13)
+- Removed after checking that nothing in app/, src/, content/, scripts/, public/ or config used them: components/layout/Header.tsx (the live navbar is ui/navbar-mgrtech.tsx), motion/NeuralLink.tsx, motion/Particles.tsx, the old .wd-bar section-bar CSS, unused .wd-reveal / .wd-cols / .wd-more rules, WEB_TAG, CATEGORY_BY_NAME.
+- Kept on purpose: src/data/pricing-page.ts, seo-packages.ts, social-packages.ts, website-cost-guide.ts (imported by nothing, but the service-page data cite them as copy sources); the two unused-variable lint warnings (the node destructure in ArticleBody.tsx and notes in lead.test.ts are deliberate omissions).
