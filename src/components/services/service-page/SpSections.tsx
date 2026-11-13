@@ -10,7 +10,7 @@ import SpDayBar from '@/components/services/service-page/SpDayBar';
 import HeroBackdrop from '@/components/services/service-page/HeroBackdrop';
 
 /** Hero (dark): promise, two actions, and four quick facts. */
-export function SpHero({ data, serviceName, slug, quickJump = false }: { data: ServicePageData['hero']; serviceName: string; slug: string; quickJump?: boolean }) {
+export function SpHero({ data, serviceName, slug }: { data: ServicePageData['hero']; serviceName: string; slug: string }) {
   return (
     <section id="overview" className="wd-night wd-hero" aria-labelledby="sp-hero-heading">
       <HeroBackdrop slug={slug} />
@@ -33,15 +33,6 @@ export function SpHero({ data, serviceName, slug, quickJump = false }: { data: S
           </a>
           <a className="wd-btn wd-btn-ghost" href="#contact">{data.secondaryCta}</a>
         </div>
-        {quickJump && (
-          <nav className="wd-jump" aria-label="Jump to a section">
-            <span>Jump to</span>
-            <a href="#pricing">Pricing</a>
-            <a href="#how">How it works</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contact">Free review</a>
-          </nav>
-        )}
         <small>{SITE.location}</small>
         <div className="wd-strip" aria-label={`${serviceName} at a glance`}>
           {data.facts.map((f) => (
