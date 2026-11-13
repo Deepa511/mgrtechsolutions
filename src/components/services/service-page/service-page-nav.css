@@ -76,6 +76,13 @@
   html[data-sn-collapsed="true"] .sn-list-head i{transform:rotate(-135deg)}
   html[data-sn-collapsed="true"] .sn-list ol a{justify-content:center;padding:4px 0;border-radius:8px;border-left-width:0}
   html[data-sn-collapsed="true"] .sn-list ol a[aria-current="true"]{box-shadow:inset 0 0 0 1.5px var(--accent)}
+  /* collapsed: the section name appears beside the number on hover or keyboard focus */
+  html[data-sn-collapsed="true"] .sn-list{overflow:visible}
+  html[data-sn-collapsed="true"] .sn-list ol a{position:relative}
+  html[data-sn-collapsed="true"] .sn-list ol a::after{content:attr(data-label);position:absolute;left:calc(100% + 12px);top:50%;transform:translate(-4px,-50%);padding:7px 12px;border:1px solid var(--night-line);border-radius:10px;background:var(--night);color:var(--on-night);font:500 13px/1.2 var(--sans);white-space:nowrap;box-shadow:0 8px 20px color-mix(in srgb,var(--night) 40%,transparent);opacity:0;pointer-events:none;transition:opacity .15s,transform .15s}
+  html[data-sn-collapsed="true"] .sn-list ol a::before{content:"";position:absolute;left:calc(100% + 8px);top:50%;width:8px;height:8px;margin-top:-4px;border-left:1px solid var(--night-line);border-bottom:1px solid var(--night-line);background:var(--night);transform:rotate(45deg);opacity:0;pointer-events:none;transition:opacity .15s;z-index:1}
+  html[data-sn-collapsed="true"] .sn-list ol a:hover::before,html[data-sn-collapsed="true"] .sn-list ol a:focus-visible::before{opacity:1}
+  html[data-sn-collapsed="true"] .sn-list ol a:hover::after,html[data-sn-collapsed="true"] .sn-list ol a:focus-visible::after{opacity:1;transform:translate(0,-50%)}
   /* keep the page content clear of the list */
   .wd-nav-list .wd-wrap,.wd-nav-list .wd-approach .sc-wrap{margin-left:max(252px,calc((100% - 76rem)/2));margin-right:0;width:calc(100% - max(252px,calc((100% - 76rem)/2)) - 16px);max-width:76rem}
   html[data-sn-collapsed="true"] .wd-nav-list .wd-wrap,html[data-sn-collapsed="true"] .wd-nav-list .wd-approach .sc-wrap{margin-left:max(112px,calc((100% - 76rem)/2));width:calc(100% - max(112px,calc((100% - 76rem)/2)) - 16px)}
@@ -85,4 +92,5 @@
 @media(prefers-reduced-motion:reduce){
   .sn-merged{transition:none}
   .sn-current i{transition:none}
+  html[data-sn-collapsed="true"] .sn-list ol a::before,html[data-sn-collapsed="true"] .sn-list ol a::after{transition:none;transform:translate(0,-50%)}
 }

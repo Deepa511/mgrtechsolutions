@@ -89,18 +89,12 @@ export default function PageNav() {
 
   useEffect(() => {
     const root = document.documentElement;
-    try {
-      root.dataset.snCollapsed = window.localStorage.getItem('sn-list-collapsed') === '1' ? 'true' : 'false';
-    } catch {
-      root.dataset.snCollapsed = 'false'; // storage blocked: the list simply starts open
-    }
+    root.dataset.snCollapsed = 'false'; // always starts open; closing it lasts until the page reloads
     return () => { delete root.dataset.snCollapsed; };
   }, []);
   const toggle = () => {
     const root = document.documentElement;
-    const next = root.dataset.snCollapsed === 'true' ? 'false' : 'true';
-    root.dataset.snCollapsed = next;
-    try { window.localStorage.setItem('sn-list-collapsed', next === 'true' ? '1' : '0'); } catch { /* ignore */ }
+    root.dataset.snCollapsed = root.dataset.snCollapsed === 'true' ? 'false' : 'true';
   };
   const currentId = SECTIONS[current].id;
 
@@ -170,7 +164,8 @@ export default function PageNav() {
               <a
                 href={`#${s.id}`}
                 onClick={jump(s.id)}
-                title={s.label}
+                aria-label={s.label}
+                data-label={s.label}
                 className={KEY_IDS.includes(s.id) ? 'sn-key' : undefined}
                 aria-current={s.id === currentId ? 'true' : undefined}
               >

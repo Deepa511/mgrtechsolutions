@@ -320,7 +320,10 @@ Overview cards: hover lift, icon redraw and idle loops, pointer glow, slide-in "
 
 ## Section navigation, one design for all six service pages (2026-11-13)
 - Replaces the SectionBar top bar, the Website Design rail/chips pilot and the three-way comparison (all deleted). Code: PageNav in SectionNav.tsx, useSectionNav.ts, service-page-nav.css; used by ServicePage.tsx and app/services/website-design/page.tsx (root class wd-nav-list).
-- 1100px and up: normal navbar (hides on scroll down, back on scroll up) plus an always-open On this page list on the left (progress line, Pricing and FAQ bold, Get a free review button, collapse to a number strip remembered in localStorage); content shifts right to stay clear of it.
+- 1100px and up: normal navbar (hides on scroll down, back on scroll up) plus an always-open On this page list on the left (progress line, Pricing and FAQ bold, Get a free review button, collapse to a number strip, not remembered: it always starts open); content shifts right to stay clear of it.
 - Under 1100px: after the top 80px one slim bar replaces the navbar: logo, current-section button (opens all 14), Call, Menu (site links). Scroll-up does not bring the full navbar back there.
 - Jumps use Lenis with offset 0; the section scroll-margin-top (72px / 24px wide) does the spacing, because Lenis adds scroll-margin on top of any offset.
 - Known: npx vitest run failed to load all 9 suites (Cannot read properties of undefined reading config) on 2026-11-13 even though no test file was touched; it passed 173/173 on 2026-11-12. Not yet diagnosed.
+
+## Problem cards no longer shift the page (2026-11-13)
+- The row of problem cards (.wd-xps) changed height with whichever card was open, so Our approach below it moved while hovering. useStableHeight.ts measures the tallest open state (transitions off, no paint) and sets it as a hard row height (not min-height: mid-animation text wraps taller than any resting state, and cards clip with overflow hidden; .wd-xps also has contain:layout); re-measures on resize and font load; not applied under 961px. Used by SpProblems and WdProblems. Trade-off: at about 1100px the row stays up to ~150px taller than a short open card needs.
