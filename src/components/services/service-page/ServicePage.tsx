@@ -69,7 +69,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
         <SpIndustries data={data.industries} />
       </Band>
 
-      <SpGuides data={data.guides} />
+      <SpGuides data={data.guides} slug={data.slug} />
       <SpFaq data={data.faq} />
       <SpRelated data={data.related} />
       <SpClose data={data.close} />

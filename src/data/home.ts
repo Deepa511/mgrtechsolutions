@@ -5,6 +5,7 @@
  * Positioning rule (spec §4): nothing here may claim the company is one
  * person. First person singular is fine where Srii speaks to the reader.
  */
+import { LAUNCH } from '@/data/prices';
 
 /** S1 — Hero */
 export const HERO = {
@@ -449,7 +450,7 @@ export const PROCESS = {
       yourTime: "just call",
       track: "after",
       body:
-        "The site is yours. The first two weeks we stay close: if a form fails or a number is off, we fix it. After that you can run it yourself, or keep us on for hosting and the small changes that come up.",
+        "The site is yours. The first two weeks we stay close: if a form fails or a number is off, we fix it. After that you can run it yourself, or keep us on with a Care plan, which includes hosting and the small changes that come up.",
       bullets: [
         "New service, new town, new photos",
         "Optional, not a trap",
@@ -499,23 +500,21 @@ export const COMPARISON = {
         "Cheap until it isn't",
         'Unpredictable',
         '$$$$$',
-        'Starting-at pricing, on the website',
+        'Every price on the website',
       ],
     },
   ],
 } as const;
 
 /**
- * S11 — Pricing preview.
- * PLACEHOLDER FIGURES. The owner supplies real numbers before launch; until
- * then every price renders as `$X,XXX` and the section says so plainly.
+ * S11 — Pricing preview. The prices themselves come from src/data/prices.ts
+ * (PricingPreview reads the website tiers by id); only the copy lives here.
  */
 export const PRICING = {
   eyebrow: '— PRICING, ON THE TABLE',
   lede:
-    'Starting-at pricing, published. Your final quote is locked after one call: no hourly meters, no surprise invoices.',
-  placeholderNote: 'FINAL PRICING CONFIRMED ON THE CALL.',
-  cta: 'See what each package includes',
+    `Prices, published. The Site and The System are one-time prices and launch in ${LAUNCH.standard}. Work outside what we agree is always quoted first: no hourly meters, no surprise invoices.`,
+  cta: 'Build your plan and see the total',
   /**
    * Published pricing is a differentiator, so the number that justifies it
    * sits here rather than in STAGES 02, where it previously appeared in a
@@ -525,45 +524,11 @@ export const PRICING = {
   proof:
     'Roughly four in five homeowners say they’re more likely to call a contractor whose pricing is on the website. That’s why ours is.',
   proofSource: 'Roofing Contractor: 2025 Homeowner Survey (roofing-specific)',
+  /** One card per website tier. `id` is a tier id in prices.ts. */
   plans: [
-    {
-      name: 'THE SITE',
-      price: '$X,XXX',
-      tagline: 'A hand-coded website built to be found and chosen.',
-      featured: false,
-      includes: [
-        'Custom design',
-        'Up to N pages',
-        'Mobile-first',
-        'Google Business Profile setup',
-        'Launch & hosting setup',
-      ],
-    },
-    {
-      name: 'THE SYSTEM',
-      price: '$X,XXX',
-      tagline: 'The site plus the content and follow-up that make it ring.',
-      featured: true,
-      includes: [
-        'Everything in The Site',
-        'Content pages/articles',
-        'Contact forms with instant auto-reply',
-        'AI follow-up automation',
-        '30 days post-launch support',
-      ],
-    },
-    {
-      name: 'THE REBUILD',
-      price: '$X,XXX',
-      tagline: 'Your existing site, taken apart and rebuilt properly.',
-      featured: false,
-      includes: [
-        'Full audit of current site',
-        'Content salvage & rewrite',
-        'New hand-coded build',
-        'Redirect & SEO preservation',
-      ],
-    },
+    { id: 'site', tagline: 'A hand-coded website built to be found and chosen.' },
+    { id: 'system', tagline: 'The site plus the content and follow-up that make it ring.' },
+    { id: 'custom', tagline: 'Your existing site, taken apart and rebuilt properly, or a custom build.' },
   ],
 } as const;
 

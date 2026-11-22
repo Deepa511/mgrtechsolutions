@@ -24,6 +24,7 @@ export default function QuoteForm() {
   const [values, setValues] = useState({
     name: '',
     email: '',
+    phone: '',
     projectType: '',
     budget: '',
     timeline: '',
@@ -102,8 +103,8 @@ export default function QuoteForm() {
           Got it. I&rsquo;ll follow up with real numbers.
         </h2>
         <p className="mt-3 max-w-md text-[1.0625rem] leading-[1.7] text-ink-soft">
-          Expect a reply within two business days, from a person, not an autoresponder. Need it
-          sooner? Call {SITE.phone}.
+          {SITE.replyTime} It comes from a person, not an autoresponder. Need it sooner? Call{' '}
+          {SITE.phone}.
         </p>
       </div>
     );
@@ -175,6 +176,30 @@ export default function QuoteForm() {
           {errors.email && (
             <p id="quote-email-error" className="mt-2 text-[0.8125rem] text-destructive">
               {errors.email}
+            </p>
+          )}
+        </div>
+
+        <div>
+          <label htmlFor="quote-phone" className="eyebrow text-ink-soft">
+            YOUR PHONE (OPTIONAL)
+          </label>
+          <input
+            id="quote-phone"
+            name="phone"
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            placeholder="If you would rather talk"
+            value={values.phone}
+            onChange={set('phone')}
+            aria-invalid={Boolean(errors.phone)}
+            aria-describedby={errors.phone ? 'quote-phone-error' : undefined}
+            className={`${inputBase} mt-2 ${errors.phone ? 'border-destructive' : 'border-form-border'}`}
+          />
+          {errors.phone && (
+            <p id="quote-phone-error" className="mt-2 text-[0.8125rem] text-destructive">
+              {errors.phone}
             </p>
           )}
         </div>

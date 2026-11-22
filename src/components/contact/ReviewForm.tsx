@@ -14,7 +14,7 @@ const inputBase =
   'w-full rounded-xl border bg-cream-50 px-4 py-3 text-[1rem] text-forest-950 transition placeholder:text-ink-soft';
 
 export default function ReviewForm({ showHeader = true }: { showHeader?: boolean }) {
-  const [values, setValues] = useState({ url: '', email: '', name: '', notes: '', hp_ref: '' });
+  const [values, setValues] = useState({ url: '', email: '', name: '', phone: '', notes: '', hp_ref: '' });
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<Status>('idle');
   // false while rendering on the server and during hydration, true once on the client
@@ -87,8 +87,8 @@ export default function ReviewForm({ showHeader = true }: { showHeader?: boolean
           Got it. Watch your inbox.
         </h2>
         <p className="mt-3 max-w-md text-[1.0625rem] leading-[1.7] text-ink-soft">
-          Your review lands within two business days, from a person, not an autoresponder. Need
-          it sooner? Call {SITE.phone}.
+          {SITE.replyTime} It comes from a person, not an autoresponder. Need it sooner? Call{' '}
+          {SITE.phone}.
         </p>
       </div>
     );

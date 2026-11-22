@@ -18,6 +18,7 @@ import WdGuides from '@/components/services/website-design/WdGuides';
 import WdFaq from '@/components/services/website-design/WdFaq';
 import WdRelated from '@/components/services/website-design/WdRelated';
 import WdClose from '@/components/services/website-design/WdClose';
+import '@/components/services/service-page/service-page.css';
 import '@/components/services/service-page/service-page-nav.css';
 import PageNav from '@/components/services/service-page/SectionNav';
 import { Band, SectionHead } from '@/components/services/website-design/WdBits';
